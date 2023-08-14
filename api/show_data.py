@@ -1,5 +1,5 @@
-from datetime import datetime
 from dotenv import load_dotenv
+from json import dump
 from os import getenv
 from requests import get
 
@@ -21,6 +21,7 @@ def get_shows(first_air_date="1944-01-20", language="en-US"):
     }
 
     while True:
+        print(f"Getting page {params['page']} of shows")
         response = get(url, params=params)
         data = response.json()
         for show in data["results"]:
@@ -29,4 +30,8 @@ def get_shows(first_air_date="1944-01-20", language="en-US"):
             break
         params["page"] += 1
 
-    return all_shows
+    with open("shows.json", "w") as file:
+        dump(all_shows, file)
+
+
+get_shows()
