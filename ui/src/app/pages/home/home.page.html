@@ -1,5 +1,8 @@
 <ion-content>
-  <div class="container">
-    <ion-searchbar placeholder="Search for a show..."></ion-searchbar>
-  </div>
+  <ion-searchbar (ionInput)="onSearch($event)" placeholder="Search for a show..."></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let show of filteredShows">
+      {{ show }}
+    </ion-item>
+  </ion-list>
 </ion-content>
