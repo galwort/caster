@@ -4,13 +4,28 @@ from os import getenv
 
 load_dotenv()
 api_key = getenv("TMDB_API_KEY")
-url = f"https://api.themoviedb.org/3/tv/popular?api_key={api_key}&language=en-US&page=1"
+base_url = "https://api.themoviedb.org/3"
 
-response = requests.get(url)
 
-if response.status_code == 200:
-    tv_shows = response.json()["results"]
-    for show in tv_shows:
-        print(show["name"], show["overview"])
-else:
-    print("Error fetching data")
+def get_shows(first_air_year=None, language="en-US"):
+    all_shows = {}
+
+    url = base_url + "/discover/tv"
+    page = 1
+    params = {
+        "api_key": api_key,
+        "first_air_date_year": first_air_year,
+        "language": language,
+        "page": page,
+    }
+
+    while True:
+        response = requests.get(url, params=params)
+        data = response.json()
+        for show in data["results"]:
+            all_shows[show["id"]] = show["name"]
+        if data["page"] == data["total_pages"]:
+            break
+        params["page"] += 1
+
+    return all_shows
