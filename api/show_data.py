@@ -34,7 +34,7 @@ def get_shows_by_date(first_air_date="1944-01-20", language="en-US"):
         dump(shows, file)
 
 
-def get_shows_by_year(first_air_year="1944", language="en_us"):
+def get_shows_by_year(first_air_year=1944, language="en_us"):
     shows = {}
     url = base_url + "/discover/tv"
 
