@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="137.86659mm"
+   height="251.95895mm"
+   viewBox="0 0 137.86659 251.95895"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="caster-logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.78127806"
+     inkscape:cx="483.18265"
+     inkscape:cy="405.74543"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="261.11063"
+       y="215.03229"
+       width="299.50925"
+       height="286.70969"
+       id="rect6196" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#113ccf;fill-opacity:1;stroke-width:0.1;stroke-linejoin:bevel"
+       id="path338"
+       cx="69.190079"
+       cy="68.851692"
+       r="67.730896" />
+    <path
+       sodipodi:type="star"
+       style="fill:#113ccf;fill-opacity:1;stroke-width:0.1;stroke-linejoin:bevel"
+       id="path6140"
+       inkscape:flatsided="true"
+       sodipodi:sides="3"
+       sodipodi:cx="19.303307"
+       sodipodi:cy="165.2634"
+       sodipodi:r1="60.281448"
+       sodipodi:r2="30.140726"
+       sodipodi:arg1="1.5651784"
+       sodipodi:arg2="2.612376"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 19.641962,225.54389 -33.070463,135.41643 71.338421,134.82986 Z"
+       inkscape:transform-center-x="0.20323424"
+       inkscape:transform-center-y="25.843127"
+       transform="matrix(1.200245,0,0,1.7317091,46.476419,-140.03579)" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.68897414,0,0,0.68897414,-159.97015,-184.44565)"
+       id="text6194"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:Broadway;-inkscape-font-specification:Broadway;white-space:pre;shape-inside:url(#rect6196);fill:#bff5fd;fill-opacity:1;stroke-width:0.377953;stroke-linejoin:bevel"><tspan
+         x="261.11133"
+         y="424.7318"
+         id="tspan8377">C</tspan></text>
+  </g>
+</svg>
