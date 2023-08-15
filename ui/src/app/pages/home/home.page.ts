@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,19 +9,19 @@ import { Observable } from 'rxjs';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  searchResults: Observable<any[]>;
+  searchResults: Observable<any[]> = of([]);
   searchTerm: string = '';
 
   constructor(private http: HttpClient) {}
 
   searchShows() {
     const query = encodeURIComponent(this.searchTerm.trim());
-    const url = `https://api.themoviedb.org/3/search/tv?api_key=YOUR_API_KEY&query=${query}`;
+    const url = `http://localhost:8000/search/tv?query=${query}`;
 
     this.searchResults = this.http.get<any>(url)
       .pipe(
         debounceTime(200),
-        map(response => response.results.slice(0, 5)) // Limit to 5 results
+        map(response => response.results.slice(0, 5))
       );
   }
 }
