@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'shows',
+    path: 'shows/:id',
     loadChildren: () => import('./pages/shows/shows.module').then( m => m.ShowsPageModule)
   },
 ];
