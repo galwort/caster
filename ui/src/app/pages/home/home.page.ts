@@ -16,7 +16,7 @@ export class HomePage {
 
   searchShows() {
     const query = encodeURIComponent(this.searchTerm.trim());
-    const url = `http://localhost:8000/search/tv?query=${query}`;
+    const url = `http://localhost:8000/search/tv?language=en-US&query=${query}`;
 
     this.searchResults = this.http.get<any>(url)
       .pipe(
