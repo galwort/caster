@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomePage {
   searchResults: Observable<any[]> = of([]);
   searchTerm: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   searchShows() {
     const query = encodeURIComponent(this.searchTerm.trim());
@@ -23,5 +24,9 @@ export class HomePage {
         debounceTime(200),
         map(response => response.results.slice(0, 5))
       );
+  }
+
+  selectShow(show: any) {
+    this.router.navigate(['/shows', show.id]);
   }
 }
