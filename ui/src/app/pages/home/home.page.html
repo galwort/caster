@@ -7,7 +7,7 @@
       placeholder="Search for a show...">
     </ion-searchbar>
     <ion-list *ngIf="searchResults | async as results">
-      <ion-item *ngFor="let result of results" (click)="selectShow(result)">
+      <ion-item *ngFor="let result of results" (click)="selectShow(result)" class="clickable">
         {{ result.name }}
       </ion-item>
     </ion-list>
