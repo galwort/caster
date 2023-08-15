@@ -1,9 +1,19 @@
-ion-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  --padding: 0;
+#container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+img {
+  height: 20vh;
+  width: auto;
+  margin: auto;
+  display: block;
+  padding: 20px;
 }
 
 ion-searchbar {
@@ -12,4 +22,10 @@ ion-searchbar {
   --border-radius: 25px;
   --box-shadow: 0 0 0 2px #ff9911;
   --icon-color: #ff9911;
+}
+
+ion-footer {
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 15px;
 }
