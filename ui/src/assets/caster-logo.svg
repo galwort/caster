@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="137.86659mm"
-   height="251.95895mm"
-   viewBox="0 0 137.86659 251.95895"
+   width="142.9464mm"
+   height="255.34552mm"
+   viewBox="0 0 142.94639 255.34552"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.78127806"
-     inkscape:cx="483.18265"
-     inkscape:cy="405.74543"
+     inkscape:cx="373.1066"
+     inkscape:cy="487.66248"
      inkscape:window-width="1920"
      inkscape:window-height="1057"
      inkscape:window-x="-8"
@@ -45,38 +45,19 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <circle
-       style="fill:#113ccf;fill-opacity:1;stroke-width:0.1;stroke-linejoin:bevel"
-       id="path338"
-       cx="69.190079"
-       cy="68.851692"
-       r="67.730896" />
+     id="layer1"
+     transform="translate(2.3705815,2.3705815)">
     <path
-       sodipodi:type="star"
-       style="fill:#113ccf;fill-opacity:1;stroke-width:0.1;stroke-linejoin:bevel"
-       id="path6140"
-       inkscape:flatsided="true"
-       sodipodi:sides="3"
-       sodipodi:cx="19.303307"
-       sodipodi:cy="165.2634"
-       sodipodi:r1="60.281448"
-       sodipodi:r2="30.140726"
-       sodipodi:arg1="1.5651784"
-       sodipodi:arg2="2.612376"
-       inkscape:rounded="0"
-       inkscape:randomized="0"
-       d="M 19.641962,225.54389 -33.070463,135.41643 71.338421,134.82986 Z"
-       inkscape:transform-center-x="0.20323424"
-       inkscape:transform-center-y="25.843127"
-       transform="matrix(1.200245,0,0,1.7317091,46.476419,-140.03579)" />
+       id="path338"
+       style="fill:#113ccf;fill-opacity:1;stroke:#ff9911;stroke-width:5;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+       d="M 69.190092,1.1208618 A 67.730896,67.730896 0 0 0 1.4593424,68.851611 67.730896,67.730896 0 0 0 8.7953288,99.429073 L 70.051538,250.54078 130.19257,98.278756 A 67.730896,67.730896 0 0 0 136.92084,68.851611 67.730896,67.730896 0 0 0 69.190092,1.1208618 Z" />
     <text
        xml:space="preserve"
        transform="matrix(0.68897414,0,0,0.68897414,-159.97015,-184.44565)"
        id="text6194"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:Broadway;-inkscape-font-specification:Broadway;white-space:pre;shape-inside:url(#rect6196);fill:#bff5fd;fill-opacity:1;stroke-width:0.377953;stroke-linejoin:bevel"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:Broadway;-inkscape-font-specification:Broadway;white-space:pre;shape-inside:url(#rect6196);display:inline;fill:#bff5fd;fill-opacity:1;stroke-width:0.377953;stroke-linejoin:bevel"><tspan
          x="261.11133"
          y="424.7318"
-         id="tspan8377">C</tspan></text>
+         id="tspan6662">C</tspan></text>
   </g>
 </svg>
