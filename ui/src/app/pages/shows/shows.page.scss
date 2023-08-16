@@ -7,7 +7,7 @@
     padding: 50px;
 
     .show-image {
-      width: 150px;
+      width: 180px;
       height: auto;
       margin-right: 20px;
       border: 3px solid #ff9911;
@@ -30,8 +30,16 @@
       .show-subtitle {
         font-size: 1rem;
         color: white;
-        margin-top: -5px;
+        margin-top: -8px;
+        margin-left: 3px;
       }
+
+      .blank-line {
+        height: 1rem;
+        margin-top: -8px;
+        margin-left: 3px;
+      }
+      
     }
   }
 }
