@@ -4,7 +4,7 @@ import { debounceTime, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, collection, addDoc } from "firebase/firestore";
 import { environment } from 'src/environments/environment';
 
 export const app = initializeApp(environment.firebase);
@@ -35,7 +35,7 @@ export class HomePage {
   selectShow(show: any) {
     const showId = show.id.toString();
     const url = `http://localhost:8000/tv/${showId}`;
-
+  
     this.http.get<any>(url).subscribe(response => {
       const showData = {
         show_name: response.name,
@@ -46,8 +46,16 @@ export class HomePage {
         show_episodes: response.number_of_episodes,
         show_overview: response.overview,
       };
-
+  
       setDoc(doc(db, "shows", showId), showData).then(() => {
+        for (let seasonId = 1; seasonId <= response.number_of_seasons; seasonId++) {
+          const seasonUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}`;
+          this.http.get<any>(seasonUrl).subscribe(seasonResponse => {
+            const seasonsCollection = collection(db, "shows", showId, "seasons");
+            addDoc(seasonsCollection, seasonResponse);
+          });
+        }
+  
         this.router.navigate(['/shows', showId]);
       });
     });
