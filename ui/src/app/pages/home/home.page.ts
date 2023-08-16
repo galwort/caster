@@ -36,7 +36,8 @@ export class HomePage {
 
   selectShow(show: any) {
     const showData = {
-      show_name: show.name
+      show_name: show.name,
+      show_image: show.poster_path
     };
 
     setDoc(doc(db, "shows", show.id.toString()), showData).then(() => {
