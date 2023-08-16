@@ -1,6 +1,9 @@
 <ion-content class="blue-horizontal-fade">
   <div class="header-container">
     <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}" class="show-image">
-    <h1 class="show-title">{{ show?.show_name }}</h1>
+    <div class="text-container">
+      <h1 class="show-title">{{ show?.show_name }}</h1>
+      <p class="show-subtitle">{{ show?.show_overview }}</p>
+    </div>
   </div>
 </ion-content>
