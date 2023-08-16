@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
@@ -15,8 +15,6 @@ export const db = getFirestore(app);
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-
-
 export class HomePage {
   searchResults: Observable<any[]> = of([]);
   searchTerm: string = '';
@@ -35,15 +33,19 @@ export class HomePage {
   }
 
   selectShow(show: any) {
-    const showData = {
-      show_name: show.name,
-      show_image: show.poster_path,
-      show_overview: show.overview,
-    };
+    const showId = show.id.toString();
+    const url = `http://localhost:8000/tv/${showId}`;
 
-    setDoc(doc(db, "shows", show.id.toString()), showData).then(() => {
-      this.router.navigate(['/shows', show.id]);
+    this.http.get<any>(url).subscribe(response => {
+      const showData = {
+        show_name: response.name,
+        show_image: response.poster_path,
+        show_overview: response.overview,
+      };
+
+      setDoc(doc(db, "shows", showId), showData).then(() => {
+        this.router.navigate(['/shows', showId]);
+      });
     });
   }
-  
 }

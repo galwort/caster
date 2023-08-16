@@ -23,3 +23,10 @@ def search_tv(query: str):
     url = f"https://api.themoviedb.org/3/search/tv?api_key={TMDB_API_KEY}&query={query}"
     response = get(url)
     return response.json()
+
+
+@app.get("/tv/{show_id}")
+def get_tv(show_id: int):
+    url = f"https://api.themoviedb.org/3/tv/{show_id}?api_key={TMDB_API_KEY}"
+    response = get(url)
+    return response.json()
