@@ -40,6 +40,10 @@ export class HomePage {
       const showData = {
         show_name: response.name,
         show_image: response.poster_path,
+        show_first_air_date: response.first_air_date,
+        show_last_air_date: response.last_air_date,
+        show_seasons: response.number_of_seasons,
+        show_episodes: response.number_of_episodes,
         show_overview: response.overview,
       };
 
