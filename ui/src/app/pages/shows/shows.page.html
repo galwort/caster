@@ -1,13 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>shows</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">shows</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <h1>{{ show?.show_name }}</h1>
+  <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}">
 </ion-content>

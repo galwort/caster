@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+
+export const db = getFirestore();
 
 @Component({
   selector: 'app-shows',
@@ -7,14 +10,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['shows.page.scss'],
 })
 export class ShowsPage implements OnInit {
-  showId!: string | null;
+  show: any;
 
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.showId = this.route.snapshot.paramMap.get('id');
-    if (this.showId === null) {
+  async ngOnInit() {
+    const showId = this.route.snapshot.paramMap.get('id');
+    if (showId) {
+      const showDoc = await getDoc(doc(db, "shows", showId));
+      this.show = showDoc.data();
     } else {
     }
   }
+  
 }
