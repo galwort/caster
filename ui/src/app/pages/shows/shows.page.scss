@@ -67,5 +67,11 @@
     margin-bottom: 10px;
     margin-right: -10px;
     color: #bff5fd;
-  }  
+    cursor: pointer;
+  
+    &:hover {
+      border-color: #ff9911;
+      color: #ff9911;
+    }
+  }
 }
