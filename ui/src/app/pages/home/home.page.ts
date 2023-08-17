@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { Observable, fromEvent, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, collection, addDoc } from "firebase/firestore";
@@ -49,13 +49,30 @@ export class HomePage {
   
       setDoc(doc(db, "shows", showId), showData).then(() => {
         for (let seasonId = 1; seasonId <= response.number_of_seasons; seasonId++) {
-          const seasonDocRef = doc(db, "shows", showId, "seasons", seasonId.toString());
-          setDoc(seasonDocRef, {});
+          const seasonUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}`;
+          this.http.get<any>(seasonUrl).subscribe(seasonResponse => {
+            const seasonData = { season_episodes: seasonResponse.episodes.length };
+            const seasonDocRef = doc(db, "shows", showId, "seasons", seasonId.toString());
+            setDoc(seasonDocRef, seasonData).then(() => {
+              for (let episodeId = 1; episodeId <= seasonResponse.episodes.length; episodeId++) {
+                const episodeUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}/episode/${episodeId}`;
+                this.http.get<any>(episodeUrl).subscribe(episodeResponse => {
+                  const episodeData = {
+                    episode_name: episodeResponse.name,
+                    episode_air_date: episodeResponse.air_date,
+                    episode_overview: episodeResponse.overview,
+                  };
+                  const episodeDocRef = doc(db, "shows", showId, "seasons", seasonId.toString(), "episodes", episodeId.toString());
+                  setDoc(episodeDocRef, episodeData);
+                });
+              }
+            });
+          });
         }
-  
         this.router.navigate(['/shows', showId]);
       });
     });
   }
+  
   
 }
