@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, map } from 'rxjs/operators';
-import { Observable, fromEvent, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, collection, addDoc } from "firebase/firestore";
@@ -35,7 +35,7 @@ export class HomePage {
   selectShow(show: any) {
     const showId = show.id.toString();
     const url = `http://localhost:8000/tv/${showId}`;
-  
+
     this.http.get<any>(url).subscribe(response => {
       const showData = {
         show_name: response.name,
@@ -46,7 +46,7 @@ export class HomePage {
         show_episodes: response.number_of_episodes,
         show_overview: response.overview,
       };
-  
+
       setDoc(doc(db, "shows", showId), showData).then(() => {
         for (let seasonId = 1; seasonId <= response.number_of_seasons; seasonId++) {
           const seasonUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}`;
@@ -63,7 +63,20 @@ export class HomePage {
                     episode_overview: episodeResponse.overview,
                   };
                   const episodeDocRef = doc(db, "shows", showId, "seasons", seasonId.toString(), "episodes", episodeId.toString());
-                  setDoc(episodeDocRef, episodeData);
+                  setDoc(episodeDocRef, episodeData).then(() => {
+                    const castUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}/episode/${episodeId}/credits`;
+                    this.http.get<any>(castUrl).subscribe(castResponse => {
+                      castResponse.cast.forEach((cast: any) => {
+                        const castData = {
+                          cast_name: cast.name,
+                          cast_image: cast.profile_path,
+                          cast_character: cast.character,
+                        };
+                        const castDocRef = doc(db, "shows", showId, "seasons", seasonId.toString(), "episodes", episodeId.toString(), "cast", cast.id.toString());
+                        setDoc(castDocRef, castData);
+                      });
+                    });
+                  });
                 });
               }
             });
@@ -73,6 +86,4 @@ export class HomePage {
       });
     });
   }
-  
-  
 }
