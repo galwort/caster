@@ -49,15 +49,13 @@ export class HomePage {
   
       setDoc(doc(db, "shows", showId), showData).then(() => {
         for (let seasonId = 1; seasonId <= response.number_of_seasons; seasonId++) {
-          const seasonUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}`;
-          this.http.get<any>(seasonUrl).subscribe(seasonResponse => {
-            const seasonsCollection = collection(db, "shows", showId, "seasons");
-            addDoc(seasonsCollection, seasonResponse);
-          });
+          const seasonDocRef = doc(db, "shows", showId, "seasons", seasonId.toString());
+          setDoc(seasonDocRef, {});
         }
   
         this.router.navigate(['/shows', showId]);
       });
     });
   }
+  
 }
