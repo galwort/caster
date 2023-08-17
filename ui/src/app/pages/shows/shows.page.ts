@@ -12,6 +12,7 @@ export const db = getFirestore();
 export class ShowsPage implements OnInit {
   show: any;
   seasons: any[] = [];
+  castImages: string[] = [];
 
   constructor(private route: ActivatedRoute) {}
 
@@ -30,6 +31,15 @@ export class ShowsPage implements OnInit {
         };
       });
       
+    }
+  }
+
+  async loadCastImages(seasonIndex: number, episodeIndex: number) {
+    const showId = this.route.snapshot.paramMap.get('id');
+    if (showId) {
+      const episodeCollection = collection(db, "shows", showId, "seasons", seasonIndex.toString(), "episodes", episodeIndex.toString(), "cast");
+      const episodeSnapshot = await getDocs(episodeCollection);
+      this.castImages = episodeSnapshot.docs.map(doc => doc.data()['cast_image']);
     }
   }
 }

@@ -11,10 +11,13 @@
     </div>
   </div>
   <div class="seasons-container">
-    <div *ngFor="let season of seasons" class="season">
-      <div *ngFor="let episode of season.episodes" class="episode">
+    <div *ngFor="let season of seasons; let seasonIndex = index" class="season">
+      <div *ngFor="let episode of season.episodes; let episodeIndex = index" class="episode" (click)="loadCastImages(seasonIndex, episodeIndex)">
         {{ episode }}
       </div>
     </div>
+  </div>
+  <div class="cast-container">
+    <img *ngFor="let image of castImages" [src]="'https://image.tmdb.org/t/p/w500' + image" alt="Cast Image">
   </div>
 </ion-content>
