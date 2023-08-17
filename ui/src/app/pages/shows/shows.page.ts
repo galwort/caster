@@ -23,12 +23,13 @@ export class ShowsPage implements OnInit {
 
       const seasonsCollection = collection(db, "shows", showId, "seasons");
       const seasonsSnapshot = await getDocs(seasonsCollection);
-      this.seasons = seasonsSnapshot.docs.map(doc => {
+      this.seasons = seasonsSnapshot.docs.map((doc, seasonIndex) => {
         const data = doc.data();
         return {
-          episodes: new Array(data["season_episodes"]).fill(1)
+          episodes: Array.from({ length: data['season_episodes'] }, (_, episodeIndex) => (seasonIndex + 1) * 100 + (episodeIndex + 1))
         };
       });
+      
     }
   }
 }
