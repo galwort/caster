@@ -21,7 +21,9 @@
       </div>
     </div>
     <div class="cast-container">
-      <img *ngFor="let image of castImages" [src]="'https://image.tmdb.org/t/p/w500' + image" alt="Cast Image">
+      <div *ngFor="let image of castImages" class="cast-image-container">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + image" alt="Cast Image">
+      </div>
     </div>
   </div>
 </ion-content>
