@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, collection, getDocs } from "firebase/firestore";
 
 export const db = getFirestore();
 
@@ -11,6 +11,7 @@ export const db = getFirestore();
 })
 export class ShowsPage implements OnInit {
   show: any;
+  seasons: any[] = [];
 
   constructor(private route: ActivatedRoute) {}
 
@@ -19,8 +20,15 @@ export class ShowsPage implements OnInit {
     if (showId) {
       const showDoc = await getDoc(doc(db, "shows", showId));
       this.show = showDoc.data();
-    } else {
+
+      const seasonsCollection = collection(db, "shows", showId, "seasons");
+      const seasonsSnapshot = await getDocs(seasonsCollection);
+      this.seasons = seasonsSnapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          episodes: new Array(data["season_episodes"]).fill(1)
+        };
+      });
     }
   }
-  
 }
