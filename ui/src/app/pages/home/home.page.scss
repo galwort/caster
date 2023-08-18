@@ -3,13 +3,10 @@
 }
 
 #container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
   max-width: 500px;
   margin: 0 auto;
+  padding-top: 15%;
 }
 
 img {
