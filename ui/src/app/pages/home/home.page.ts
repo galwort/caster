@@ -69,7 +69,7 @@ export class HomePage {
                       setDoc(episodeDocRef, episodeData).then(() => {
                         const castUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}/episode/${episodeId}/credits`;
                         this.http.get<any>(castUrl).subscribe(castResponse => {
-                          castResponse.cast.forEach((cast: any) => {
+                          castResponse.cast.slice(0, 6).forEach((cast: any) => {
                             const castData = {
                               cast_name: cast.name,
                               cast_image: cast.profile_path,
@@ -78,7 +78,7 @@ export class HomePage {
                             const castDocRef = doc(db, "shows", showId, "seasons", seasonId.toString(), "episodes", episodeId.toString(), "cast", cast.id.toString());
                             setDoc(castDocRef, castData);
                           });
-                        });
+                        });                        
                       });
                     });
                   }
