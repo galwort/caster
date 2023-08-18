@@ -13,6 +13,7 @@ export class ShowsPage implements OnInit {
   show: any;
   seasons: any[] = [];
   castImages: string[] = [];
+  selectedEpisode: { seasonIndex: number; episodeIndex: number } | null = null;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -30,11 +31,11 @@ export class ShowsPage implements OnInit {
           episodes: Array.from({ length: data['season_episodes'] }, (_, episodeIndex) => (seasonIndex + 1) * 100 + (episodeIndex + 1))
         };
       });
-      
     }
   }
 
   async loadCastImages(seasonIndex: number, episodeIndex: number) {
+    this.selectedEpisode = { seasonIndex, episodeIndex };
     const showId = this.route.snapshot.paramMap.get('id');
     if (showId) {
       const episodeCollection = collection(db, "shows", showId, "seasons", (seasonIndex + 1).toString(), "episodes", (episodeIndex + 1).toString(), "cast");
