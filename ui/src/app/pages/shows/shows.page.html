@@ -21,9 +21,13 @@
       </div>
     </div>
     <div class="cast-container">
-      <div *ngFor="let image of castImages" class="cast-image-container">
-        <img [src]="'https://image.tmdb.org/t/p/w500' + image" alt="Cast Image">
+      <div *ngFor="let character of castCharacters" class="cast-member">
+        <div class="cast-image-container">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + character.image" alt="Cast Image">
+        </div>
+        <span class="cast-name">{{ character.name }}</span>
       </div>
     </div>
+    
   </div>
 </ion-content>
