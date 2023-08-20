@@ -22,7 +22,7 @@
     </div>
     <div class="cast-container">
       <div cdkDropList [cdkDropListData]="castCharacters" (cdkDropListDropped)="drop($event)">
-        <div class="cast-member" *ngFor="let character of castCharacters" cdkDrag>{{character}}>
+        <div class="cast-member" *ngFor="let character of castCharacters" cdkDrag>
           <div class="cast-image-container">
             <img [src]="'https://image.tmdb.org/t/p/w500' + character.image" alt="Cast Image">
           </div>
