@@ -105,6 +105,7 @@
   padding-right: 2%;
   margin-top: 20px;
   margin-bottom: 20px;
+  position: relative;
 
   .cast-member {
     display: flex;
@@ -137,6 +138,29 @@
       margin-left: 10px;
     }
   }
+
+  .cast-button {
+    background: linear-gradient(to right, #b3a125, #b38f00 75%, #8c7000);
+    color: #113ccf; 
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 
+      2px 2px 3px rgba(0, 0, 0, 0.2), 
+      -2px -2px 3px rgba(255, 255, 255, 0.5);
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
 }
 
 .cdk-drag-placeholder {
