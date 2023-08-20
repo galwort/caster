@@ -6,11 +6,12 @@
   position: relative;
   max-width: 500px;
   margin: 0 auto;
-  padding-top: 15%;
+  top: 40%;
+  transform: translateY(-50%);
 }
 
 img {
-  height: 20vh;
+  height: 200px;
   width: auto;
   margin: auto;
   display: block;
