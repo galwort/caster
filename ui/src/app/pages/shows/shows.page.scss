@@ -97,8 +97,14 @@
 .cast-container {
   display: flex;
   flex-direction: column;
-  border: 3px solid #113ccf; 
+  background-color: #113ccf;
+  box-shadow: 
+    3px 3px 5px rgba(0, 0, 0, 0.2), 
+    -3px -3px 5px rgba(255, 255, 255, 0.5);
   border-radius: 30px;
+  padding-right: 2%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   .cast-member {
     display: flex;
