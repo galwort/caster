@@ -1,23 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  isCollapsed = true;
-  menuId = 'main-menu';
+export class AppComponent {
+  constructor(private router: Router) {}
 
-  constructor(private menuCtrl: MenuController) {}
-
-  ngOnInit() {
-    this.menuCtrl.enable(true, this.menuId);
-    this.menuCtrl.open(this.menuId);
+  navigateToHome() {
+    this.router.navigate(['/home']);
   }
 
-  toggleMenu() {
-    this.isCollapsed = !this.isCollapsed;
+  navigateToGitHub() {
+    window.open('https://github.com', '_blank');
   }
 }
