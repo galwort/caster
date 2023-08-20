@@ -49,7 +49,6 @@ export class ShowsPage implements OnInit {
           name: data['cast_character']
         };
       });
-      console.log(this.castCharacters);
     }
   }
 
