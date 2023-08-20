@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-header>
+  <ion-header class="ion-no-border">
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-button (click)="navigateToHome()"><ion-icon name="home"></ion-icon></ion-button>
@@ -7,5 +7,7 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-router-outlet id="main-content"></ion-router-outlet>
+  <ion-content>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-content>
 </ion-app>

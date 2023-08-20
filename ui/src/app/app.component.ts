@@ -14,6 +14,6 @@ export class AppComponent {
   }
 
   navigateToGitHub() {
-    window.open('https://github.com', '_blank');
+    window.open('https://github.com/galwort/caster', '_blank');
   }
 }
