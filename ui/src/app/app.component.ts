@@ -16,4 +16,8 @@ export class AppComponent {
   navigateToGitHub() {
     window.open('https://github.com/galwort/caster', '_blank');
   }
+
+  login() {
+    this.router.navigate(['/login']);
+  }
 }
