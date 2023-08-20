@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="cast-container">
+    <div class="cast-container" *ngIf="selectedEpisode">
       <div cdkDropList [cdkDropListData]="castCharacters" (cdkDropListDropped)="drop($event)">
         <div class="cast-member" *ngFor="let character of castCharacters" cdkDrag>
           <div class="cast-image-container">
