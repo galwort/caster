@@ -97,7 +97,8 @@
 .cast-container {
   display: flex;
   flex-direction: column;
-  padding-right: 25%;
+  border: 3px solid #113ccf; 
+  border-radius: 30px;
 
   .cast-member {
     display: flex;
@@ -173,4 +174,9 @@
       object-position: center 30%;
     }
   }
+}
+
+.blank-container {
+  display: flex;
+  padding: 10%;
 }
