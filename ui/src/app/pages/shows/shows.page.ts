@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { getFirestore, doc, getDoc, collection, getDocs } from "firebase/firestore";
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 export const db = getFirestore();
 
@@ -49,6 +50,23 @@ export class ShowsPage implements OnInit {
         };
       });
       console.log(this.castCharacters);
+    }
+  }
+
+  drop(event: CdkDragDrop<{ image: string; name: string; }[]>): void {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     }
   }
 }

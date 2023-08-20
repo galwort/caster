@@ -21,13 +21,14 @@
       </div>
     </div>
     <div class="cast-container">
-      <div *ngFor="let character of castCharacters" class="cast-member">
-        <div class="cast-image-container">
-          <img [src]="'https://image.tmdb.org/t/p/w500' + character.image" alt="Cast Image">
+      <div cdkDropList [cdkDropListData]="castCharacters" (cdkDropListDropped)="drop($event)">
+        <div class="cast-member" *ngFor="let character of castCharacters" cdkDrag>{{character}}>
+          <div class="cast-image-container">
+            <img [src]="'https://image.tmdb.org/t/p/w500' + character.image" alt="Cast Image">
+          </div>
+          <span class="cast-name">{{ character.name }}</span>
         </div>
-        <span class="cast-name">{{ character.name }}</span>
       </div>
     </div>
-    
   </div>
 </ion-content>
