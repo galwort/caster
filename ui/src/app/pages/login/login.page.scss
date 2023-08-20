@@ -1,0 +1,37 @@
+.blue-vertical-fade {
+    --background: linear-gradient(to bottom, #040d33, #113ccf);
+}
+
+ion-grid {
+    ion-row {
+        height: 100%;
+
+        ion-col {
+            ion-card {
+                border-radius: 15px;
+                width: 50%;
+                margin: 0 auto;
+                box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
+
+                ion-card-content {
+                    background-color: #bff5fd;
+
+                    ion-item {
+                        --background: #bff5fd;
+
+                        ion-label,
+                        ion-input {
+                            color: #040d33;
+                        }
+                    }
+
+                    ion-button {
+                        color: white;
+                        --background: #040d33;
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
