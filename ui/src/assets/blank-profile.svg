@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="185.27823mm"
+   height="258.05472mm"
+   viewBox="0 0 185.27823 258.05473"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="blank-profile.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#040d33"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.78127806"
+     inkscape:cx="149.11464"
+     inkscape:cy="458.22354"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2651">
+      <rect
+         style="fill:#bff5fd;stroke:none;stroke-width:4.99999;stroke-linejoin:bevel"
+         id="rect2653"
+         width="179.82553"
+         height="120.22234"
+         x="11.175599"
+         y="137.83238" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-7.4503991)">
+    <ellipse
+       style="fill:#bff5fd;stroke:none;stroke-width:5.88152;stroke-linejoin:bevel"
+       id="path788"
+       cx="99.691399"
+       cy="108.7081"
+       rx="39.961231"
+       ry="41.315849" />
+    <ellipse
+       style="fill:#bff5fd;stroke:none;stroke-width:6.67327;stroke-linejoin:bevel"
+       id="path790"
+       cx="99.691399"
+       cy="246.0096"
+       rx="81.625725"
+       ry="98.727791"
+       clip-path="url(#clipPath2651)" />
+  </g>
+</svg>

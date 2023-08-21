@@ -24,7 +24,7 @@
       <div cdkDropList [cdkDropListData]="castCharacters" (cdkDropListDropped)="drop($event)">
         <div class="cast-member" *ngFor="let character of castCharacters" cdkDrag>
           <div class="cast-image-container">
-            <img [src]="'https://image.tmdb.org/t/p/w500' + character.image" alt="Cast Image">
+            <img [src]="character.image ? 'https://image.tmdb.org/t/p/w500' + character.image : '../assets/blank-profile.svg'" alt="Cast Image">
           </div>
           <span class="cast-name">{{ character.name }}</span>
         </div>
