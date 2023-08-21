@@ -4,13 +4,17 @@
 
 #container {
     position: relative;
-    --width: 500px;
+    width: 100%;
     margin: 0 auto;
     top: 45%;
     transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ion-progress-bar {
     --background: #040d33;
     --progress-background: #bff5fd;
+    width: 50%;
 }
