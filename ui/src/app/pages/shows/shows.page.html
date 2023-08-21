@@ -20,17 +20,18 @@
         </div>
       </div>
     </div>
-    <div class="cast-container" *ngIf="selectedEpisode">
-      <div cdkDropList [cdkDropListData]="castCharacters" (cdkDropListDropped)="drop($event)">
-        <div class="cast-member" *ngFor="let character of castCharacters" cdkDrag>
-          <div class="cast-image-container">
-            <img [src]="character.image ? 'https://image.tmdb.org/t/p/w500' + character.image : '../assets/blank-profile.svg'" alt="Cast Image">
+    <div class="cast-wrapper">
+      <div class="cast-container" *ngIf="selectedEpisode">
+        <div cdkDropList [cdkDropListData]="castCharacters" (cdkDropListDropped)="drop($event)">
+          <div class="cast-member" *ngFor="let character of castCharacters" cdkDrag>
+            <div class="cast-image-container">
+              <img [src]="character.image ? 'https://image.tmdb.org/t/p/w500' + character.image : '../assets/blank-profile.svg'" alt="Cast Image">
+            </div>
+            <span class="cast-name">{{ character.name }}</span>
           </div>
-          <span class="cast-name">{{ character.name }}</span>
         </div>
+        <button class="cast-button">CAST</button>
       </div>
-      <button class="cast-button">CAST</button>
     </div>
-    <div class="blank-container"></div>
   </div>
 </ion-content>
