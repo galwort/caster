@@ -1,0 +1,16 @@
+.blue-vertical-fade {
+    --background: linear-gradient(to bottom, #040d33, #113ccf);
+}
+
+#container {
+    position: relative;
+    --width: 500px;
+    margin: 0 auto;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+ion-progress-bar {
+    --background: #040d33;
+    --progress-background: #bff5fd;
+}
