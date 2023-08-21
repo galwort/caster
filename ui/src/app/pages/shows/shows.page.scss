@@ -92,13 +92,13 @@
       margin-right: -10px;
       color: #bff5fd;
       cursor: pointer;
-    
+
       &:hover {
         border-color: #ff9911;
         color: #ff9911;
       }
     }
-    
+
     .episode-selected {
       border-color: #ff9911;
       color: #ff9911;
@@ -113,7 +113,7 @@
   flex-direction: column;
   background-color: #113ccf;
   box-shadow: 
-    3px 3px 5px rgba(0, 0, 0, 0.2), 
+    3px 3px 5px rgba(0, 0, 0, 0.2),
     -3px -3px 5px rgba(255, 255, 255, 0.5);
   border-radius: 30px;
   padding-right: 2%;
@@ -134,7 +134,7 @@
       border-radius: 50%;
       overflow: hidden;
       box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
-    
+
       img {
         width: 100%;
         height: 100%;
@@ -142,7 +142,7 @@
         object-position: center 30%;
       }
     }
-    
+
     .cast-name {
       display: block;
       font-size: 1.5rem;
@@ -155,7 +155,7 @@
 
   .cast-button {
     background: linear-gradient(to right, #b3a125, #b38f00 75%, #8c7000);
-    color: #113ccf; 
+    color: #113ccf;
     border: none;
     padding: 10px 15px;
     text-align: center;
@@ -166,15 +166,14 @@
     margin: 10px auto;
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 
-      2px 2px 3px rgba(0, 0, 0, 0.2), 
+    box-shadow:
+      2px 2px 3px rgba(0, 0, 0, 0.2),
       -2px -2px 3px rgba(255, 255, 255, 0.5);
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
   }
-  
 }
 
 .cdk-drag-placeholder {
