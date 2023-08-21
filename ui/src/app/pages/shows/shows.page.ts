@@ -44,9 +44,10 @@ export class ShowsPage implements OnInit {
       const episodeSnapshot = await getDocs(episodeCollection);
       this.castCharacters = episodeSnapshot.docs.map(doc => {
         const data = doc.data();
+        const character = data['cast_character'];
         return {
           image: data['cast_image'],
-          name: data['cast_character']
+          name: character.startsWith('Self') ? data['cast_name'] : character
         };
       });
     }
