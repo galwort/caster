@@ -8,15 +8,18 @@
   display: flex;
   flex-direction: row;
   padding: 50px;
-  height: 100%;
+  height: calc(100vh - 50px);
 }
 
 .info-container {
   flex: 1;
   max-width: 50%;
   max-height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .header-container {
+    flex: 1;
     display: flex;
     align-items: flex-start;
     padding-bottom: 40px;
@@ -64,79 +67,29 @@
 
   .seasons-container {
     display: flex;
+    flex: 2;
     position: relative;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     height: auto;
     overflow: hidden;
 
     .season {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       margin-right: 20px;
     }
-    
-    .seasons-horizontal-scroll {
-      overflow-y: auto;
-      overflow-x: hidden;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      padding: 45px;
-    }
-    
-    .arrow-bar-top,
-    .arrow-bar-bottom,
-    .arrow-bar-left,
-    .arrow-bar-right {
-      position: absolute;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #113ccf;
-      color: white;
-    }
-    
-    .arrow-bar-top {
-      top: 0;
-      width: 100%;
-      height: 30px;
-    }
-    
-    .arrow-bar-bottom {
-      bottom: 0;
-      width: 100%;
-      height: 30px;
-      right: 15px;
-      bottom: 45px;
-    }
-    
-    .arrow-bar-left {
-      left: 0;
-      width: 30px;
-      height: 100%;
-      bottom: 45px;
-    }
-    
-    .arrow-bar-right {
-      right: 0;
-      width: 30px;
-      height: 100%;
-      bottom: 45px;
-    }
 
     .episode {
-      min-width: 45px;
+      width: 45px;
       height: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 3px solid #bff5fd;
       margin-bottom: 10px;
-      margin-right: 10px;
+      margin-right: -10px;
       color: #bff5fd;
       cursor: pointer;
     
@@ -174,8 +127,8 @@
     margin: 10px;
 
     .cast-image-container {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       margin: 10px;
       border: 3px solid #ff9911;
       border-radius: 50%;

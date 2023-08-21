@@ -13,23 +13,9 @@
         </div>
       </div>
       <div class="seasons-container">
-        <div class="arrow-bar-top" *ngIf="seasons.length > 9" (click)="scrollUp(horizontalScroll)">
-          <ion-icon name="arrow-up"></ion-icon>
-        </div>
-        <div class="arrow-bar-left" *ngIf="seasons[0]?.episodes.length > 13" (click)="scrollLeft(horizontalScroll)">
-          <ion-icon name="arrow-back"></ion-icon>
-        </div>
-        <div class="seasons-horizontal-scroll" #horizontalScroll>
-          <div *ngFor="let season of seasons; let seasonIndex = index" class="season">
-            <div *ngFor="let episode of season.episodes; let episodeIndex = index" class="episode" [class.episode-selected]="selectedEpisode?.seasonIndex === seasonIndex && selectedEpisode?.episodeIndex === episodeIndex" (click)="loadCastImages(seasonIndex, episodeIndex)">
-              {{ episode }}
-            </div>
-          </div>
-          <div class="arrow-bar-bottom" *ngIf="seasons.length > 9" (click)="scrollDown(horizontalScroll)">
-            <ion-icon name="arrow-down"></ion-icon>
-          </div>
-          <div class="arrow-bar-right" *ngIf="seasons[0]?.episodes.length > 13" (click)="scrollRight(horizontalScroll)">
-            <ion-icon name="arrow-forward"></ion-icon>
+        <div *ngFor="let season of seasons; let seasonIndex = index" class="season">
+          <div *ngFor="let episode of season.episodes; let episodeIndex = index" class="episode" [class.episode-selected]="selectedEpisode?.seasonIndex === seasonIndex && selectedEpisode?.episodeIndex === episodeIndex" (click)="loadCastImages(seasonIndex, episodeIndex)">
+            {{ episode }}
           </div>
         </div>
       </div>

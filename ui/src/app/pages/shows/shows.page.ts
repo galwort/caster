@@ -69,20 +69,4 @@ export class ShowsPage implements OnInit {
       );
     }
   }
-
-  scrollDown(element: HTMLElement) {
-    element.scrollBy(0, 45);
-  }
-  
-  scrollRight(element: HTMLElement) {
-    element.scrollBy(45, 0);
-  }
-
-  scrollUp(element: HTMLElement) {
-    element.scrollBy(0, -45);
-  }
-  
-  scrollLeft(element: HTMLElement) {
-    element.scrollBy(-45, 0);
-  }  
 }
