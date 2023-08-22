@@ -2,7 +2,7 @@
   <ion-header class="ion-no-border">
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-button (click)="navigateToHome()"><img src="assets/caster-c-logo.svg" alt="Home" style="height: 24px;"></ion-button>
+        <ion-button *ngIf="!isHomePage" (click)="navigateToHome()"><img src="assets/caster-c-logo.svg" alt="Home" style="height: 24px;"></ion-button>
       </ion-buttons>
       <ion-buttons slot="end">
         <ion-button (click)="navigateToGitHub()"><ion-icon name="logo-github"></ion-icon></ion-button>
