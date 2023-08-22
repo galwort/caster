@@ -6,7 +6,7 @@
       </ion-buttons>
       <ion-buttons slot="end">
         <ion-button (click)="navigateToGitHub()"><ion-icon name="logo-github"></ion-icon></ion-button>
-        <ion-button (click)="login()"><img src="assets/blank-profile.svg" alt="Profile" style="height:24px"></ion-button>
+        <ion-button *ngIf="!isLoginPage" (click)="login()"><img src="assets/blank-profile.svg" alt="Profile" style="height:24px"></ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>

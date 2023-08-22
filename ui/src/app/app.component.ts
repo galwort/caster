@@ -8,11 +8,15 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   isHomePage: boolean = false;
+  isLoginPage: boolean = false;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isHomePage = event.urlAfterRedirects === '/home';
+      }
+      if (event instanceof NavigationEnd) {
+        this.isLoginPage = event.urlAfterRedirects === '/login';
       }
     });
   }
