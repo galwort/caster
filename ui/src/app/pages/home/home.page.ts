@@ -18,6 +18,7 @@ export const db = getFirestore(app);
 export class HomePage {
   searchResults: Observable<any[]> = of([]);
   searchTerm: string = '';
+  showProgressBar = false;
   progress = 0;
   totalCalls = 0;
   completedCalls = 0;
@@ -41,6 +42,7 @@ export class HomePage {
       if (docSnapshot.exists()) {
         this.router.navigate(['/shows', showId]);
       } else {
+        this.showProgressBar = true;
         const url = `http://localhost:8000/tv/${showId}`;
         this.http.get<any>(url).subscribe(response => {
           const showData = {
@@ -100,6 +102,7 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
+    this.showProgressBar = false;
     this.searchTerm = '';
     this.searchResults = of([]);
   }

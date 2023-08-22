@@ -15,6 +15,9 @@
         </ion-list>
       </div>
     </ng-container>
-    <ion-progress-bar [value]="progress / 100"></ion-progress-bar>
+    <div *ngIf="showProgressBar" id="progress-container">
+      <ion-progress-bar [value]="progress / 100"></ion-progress-bar>
+      <div id="progress-text">{{ completedCalls }} out of {{ totalCalls }} episodes pulled</div>
+    </div>
   </div>
 </ion-content>
