@@ -2,6 +2,16 @@
     --background: linear-gradient(to bottom, #040d33, #113ccf);
 }
 
+#container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    top: 45%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 ion-grid {
     ion-row {
