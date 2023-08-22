@@ -110,14 +110,13 @@
 
 .cast-wrapper {
   flex: 1;
-  max-width: 50%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .cast-container {
-  width: 400px;
   display: flex;
   flex-direction: column;
   background-color: #113ccf;
@@ -125,7 +124,6 @@
     3px 3px 5px rgba(0, 0, 0, 0.2),
     -3px -3px 5px rgba(255, 255, 255, 0.5);
   border-radius: 30px;
-  padding-right: 2%;
   padding-bottom: 80px;
   position: relative;
 
@@ -162,9 +160,8 @@
   }
 
   .cast-button {
-    background: linear-gradient(to right, #b3a125, #b38f00 75%, #8c7000);
-    color: #113ccf;
-    border: none;
+    background: #0a1a4d; //linear-gradient(to right, #b3a125, #b38f00 75%, #8c7000);
+    color: white;
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
