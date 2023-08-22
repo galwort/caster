@@ -42,5 +42,9 @@ export class HomePage {
       }
     });
   }
-  
+
+  ionViewWillEnter() {
+    this.searchTerm = '';
+    this.searchResults = of([]);
+  }
 }
