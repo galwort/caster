@@ -103,6 +103,9 @@ export class HomePage {
 
   ionViewWillEnter() {
     this.showProgressBar = false;
+    this.progress = 0;
+    this.totalCalls = 0;
+    this.completedCalls = 0;
     this.searchTerm = '';
     this.searchResults = of([]);
   }
