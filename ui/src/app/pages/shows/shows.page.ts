@@ -37,6 +37,12 @@ export class ShowsPage implements OnInit {
   }
 
   async loadCastImages(seasonIndex: number, episodeIndex: number) {
+    if (this.selectedEpisode?.seasonIndex === seasonIndex && this.selectedEpisode?.episodeIndex === episodeIndex) {
+      this.selectedEpisode = null;
+      this.castCharacters = [];
+      return;
+    }
+
     this.selectedEpisode = { seasonIndex, episodeIndex };
     const showId = this.route.snapshot.paramMap.get('id');
     if (showId) {
