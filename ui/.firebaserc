@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "caster-d7747": {
+      "hosting": {
+        "app": [
+          "caster-d7747"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "caster-d7747"
+  }
+}

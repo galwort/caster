@@ -68,3 +68,8 @@ testem.log
 Thumbs.db
 
 
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
