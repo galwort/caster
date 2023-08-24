@@ -1,10 +1,13 @@
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { Injectable } from '@angular/core';
 
-export const signUp = async (
-  email: string,
-  password: string,
-) => {
-  const auth = getAuth();
-  const user = await createUserWithEmailAndPassword(auth, email, password);
-  return user;
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  constructor(private auth: Auth) {}
+
+  login({ email, password }: any) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
 }
