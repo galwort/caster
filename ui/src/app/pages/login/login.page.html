@@ -8,16 +8,16 @@
               <ion-card-title>Login</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <form id="loginForm">
+              <form id="loginForm" (ngSubmit)="login()">
                 <ion-item>
                   <ion-label position="floating">Email</ion-label>
-                  <ion-input type="email" id="email"></ion-input>
+                  <ion-input type="email" id="email" [(ngModel)]="loginData.email" name="email"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-label position="floating">Password</ion-label>
-                  <ion-input type="password" id="password"></ion-input>
+                  <ion-input type="password" id="password" [(ngModel)]="loginData.password" name="password"></ion-input>
                 </ion-item>
-                <ion-button type="button" expand="block" id="loginButton">Login</ion-button>
+                <ion-button type="submit" expand="block" id="loginButton">Login</ion-button>
                 <div class="account-text"><ion-text>Create an account</ion-text></div>
               </form>
             </ion-card-content>
