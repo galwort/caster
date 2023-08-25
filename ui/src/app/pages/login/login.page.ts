@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoginData } from 'src/app/interfaces/login-data.interface';
 import { Router } from '@angular/router';
@@ -9,17 +8,17 @@ import { Router } from '@angular/router';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
+  loginData: LoginData = { email: '', password: '' };
+
   constructor(
     private readonly authService: AuthService,
     private readonly router: Router
   ) {}
 
-  ngOnInit(): void {}
-
-  login(loginData: LoginData) {
+  login() {
     this.authService
-      .login(loginData)
+      .login(this.loginData)
       .then(() => this.router.navigate(['/home']))
       .catch((e) => console.log(e.message));
   }
