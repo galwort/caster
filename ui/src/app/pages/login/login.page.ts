@@ -22,4 +22,11 @@ export class LoginPage {
       .then(() => this.router.navigate(['/home']))
       .catch((e) => console.log(e.message));
   }
+
+  loginWithGoogle() {
+    this.authService
+      .loginWithGoogle()
+      .then(() => this.router.navigate(['/home']))
+      .catch((e) => console.log(e.message));
+  }
 }
