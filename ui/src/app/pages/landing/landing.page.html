@@ -25,44 +25,47 @@
 <style>
   #arrow-up {
     animation: raiseArrow 5s infinite ease-in-out;
+    transform-origin: 50% 50%;
   }
 
   @keyframes raiseArrow {
     0% {
-      transform: translate(51.788269px,-31.219306px) translateY(0);
+      transform: translate(51.788269px,-31.219306px) translateY(0) scale(1);
     }
     20% {
-      transform: translate(51.788269px,-31.219306px) translateY(-13vh);
+      transform: translate(51.788269px,-31.219306px) translateY(-10vh) scale(0.8);
     }
     50% {
-      transform: translate(51.788269px,-31.219306px) translateY(-13vh);
+      transform: translate(51.788269px,-31.219306px) translateY(-10vh) scale(0.8);
     }
     70% {
-      transform: translate(51.788269px,-31.219306px) translateY(0);
+      transform: translate(51.788269px,-31.219306px) translateY(0) scale(1);
     }
     100% {
-      transform: translate(51.788269px,-31.219306px) translateY(0);
+      transform: translate(51.788269px,-31.219306px) translateY(0) scale(1);
     }
   }
+
   #arrow-down {
     animation: lowerArrow 5s infinite ease-in-out;
+    transform-origin: 50% 50%;
   }
 
   @keyframes lowerArrow {
     0% {
-      transform: translate(0px,11.112501px) translateY(0);
+      transform: translate(0px,11.112501px) translateY(0) scale(1);
     }
     20% {
-      transform: translate(0px,11.112501px) translateY(13vh);
+      transform: translate(0px,11.112501px) translateY(13vh) scale(0.8);
     }
     50% {
-      transform: translate(0px,11.112501px) translateY(13vh);
+      transform: translate(0px,11.112501px) translateY(13vh) scale(0.8);
     }
     70% {
-      transform: translate(0px,11.112501px) translateY(0);
+      transform: translate(0px,11.112501px) translateY(0) scale(1);
     }
     100% {
-      transform: translate(0px,11.112501px) translateY(0);
+      transform: translate(0px,11.112501px) translateY(0) scale(1);
     }
   }
 </style>
