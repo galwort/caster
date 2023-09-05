@@ -29,88 +29,82 @@
 </div>
 <style>
   #arrow-up {
-    animation: raiseArrow 5s infinite ease-in-out;
+    animation: raiseArrow 10s infinite ease-in-out;
     transform: translate(51.788269px, -31.219306px);
     transform-origin: 50% 50%;
   }
 
   #arrow-down {
-    animation: lowerArrow 5s infinite ease-in-out;
+    animation: lowerArrow 10s infinite ease-in-out;
     transform-origin: 50% 50%;
   }
 
   #c-middle {
-    animation: fadeOutCMiddle 5s infinite ease-in-out;
+    animation: fadeOutCMiddle 10s infinite ease-in-out;
   }
 
   #circle1, #circle5 {
-    animation: outerCircles 5s infinite ease-in-out;
+    animation: outerCircles 10s infinite ease-in-out;
   }
 
   #circle2, #circle4 {
-    animation: innerCircles 5s infinite ease-in-out;
+    animation: innerCircles 10s infinite ease-in-out;
   }
 
   #circle3 {
-    animation: centerCircle 5s infinite ease-in-out;
+    animation: centerCircle 10s infinite ease-in-out;
   }
 
   @keyframes raiseArrow {
-    0%, 100% {
+    0%, 20%, 60%, 100% {
       transform: translate(51.788269px, -31.219306px) translateY(0) scale(1);
     }
-    20%, 50% {
+    30%, 50% {
       transform: translate(22px, -31.219306px) translateY(-10vh) scale(0.4);
-    }
-    70% {
-      transform: translate(51.788269px, -31.219306px) translateY(0) scale(1);
     }
   }
 
   @keyframes lowerArrow {
-    0%, 100% {
+    0%, 20%, 60%, 100% {
       transform: translate(0px,11.112501px) translateY(0) scale(1);
     }
-    20%, 50% {
+    30%, 50% {
       transform: translateY(20.4vh) scale(0.4);
-    }
-    70% {
-      transform: translate(0px,11.112501px) translateY(0) scale(1);
     }
   }
 
   @keyframes fadeOutCMiddle {
-    0%, 70%, 100% {
+    0%, 10%, 70%, 100% {
       opacity: 1;
     }
-    20%, 50% {
+    15%, 65% {
       opacity: 0;
     }
   }
 
   @keyframes outerCircles {
-    0%, 70%, 100% {
+    0%, 25%, 55%, 100% {
       opacity: 0;
     }
-    20%, 50% {
+    30%, 50% {
       opacity: 1;
     }
   }
 
   @keyframes innerCircles {
-    0%, 70%, 100% {
+    0%, 23%, 57%, 100% {
       opacity: 0;
     }
-    20%, 50% {
+    28%, 52% {
       opacity: 1;
     }
   }
 
   @keyframes centerCircle {
-    0%, 70%, 100% {
+    0%, 21%, 59%, 100% {
       opacity: 0;
     }
-    20%, 50% {
+    26%, 54% {
       opacity: 1;
     }
   }
