@@ -18,10 +18,14 @@ ion-grid {
         height: 100%;
 
         ion-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             ion-card {
                 border-radius: 15px;
-                width: 50%;
-                margin: 0 auto;
+                width: 80%;
+                max-width: 400px;
                 box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
 
                 ion-card-header {
@@ -65,6 +69,12 @@ ion-grid {
                         margin-right: 10px;
                     }                      
                 }
+            }
+
+            swiper-container {
+                height: 100%;
+                width: 80%;
+                max-width: 400px;
             }
         }
     }
