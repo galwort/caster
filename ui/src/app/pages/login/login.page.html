@@ -30,10 +30,14 @@
           </ion-card>
         </ion-col>
         <ion-col size-md="6">
-          <swiper-container direction="vertical">
-            <swiper-slide>Slide 1</swiper-slide>
-            <swiper-slide>Slide 2</swiper-slide>
-            <swiper-slide>Slide 3</swiper-slide>
+          <swiper-container direction="vertical" loop="true" [slidesPerView]="2.5" [autoplay]="{ delay: 1000 }">
+            <swiper-slide><img src="https://image.tmdb.org/t/p/w500/mtncMZ50iyeRMJOwo2TwbaMCHZM.jpg"></swiper-slide>
+            <swiper-slide><img src="https://image.tmdb.org/t/p/w500/5UaYsGZOFhjFDwQh6GuLjjA1WlF.jpg"></swiper-slide>
+            <swiper-slide><img src="https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg"></swiper-slide>
+            <swiper-slide><img src="https://image.tmdb.org/t/p/w500/iABJ86eaNPUSnivk89Y0Cnxmsvy.jpg"></swiper-slide>
+            <swiper-slide><img src="https://image.tmdb.org/t/p/w500/7zYtVymTxVEhgAOuMl4l2NoFCrO.jpg"></swiper-slide>
+            <swiper-slide><img src="https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg"></swiper-slide>
+            <swiper-slide><img src="https://image.tmdb.org/t/p/w500/7HW47XbkNQ5fiwQFYGWdw9gs144.jpg"></swiper-slide>
           </swiper-container>
         </ion-col>
       </ion-row>

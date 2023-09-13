@@ -72,10 +72,12 @@ ion-grid {
             }
 
             swiper-container {
-                width: 100%;
-                height: 100px;
-                max-width: 100%;
-                max-height: 400px;
+                height: 100vh;
+
+                img {
+                    height: 39vh;
+                    border-radius: 15px;
+                }
             }
         }
     }
