@@ -1,21 +1,21 @@
 <ion-app>
-  <ion-header class="ion-no-border" *ngIf="!isLandingPage">
+  <div class="sidebar">
     <ion-toolbar>
-      <ion-buttons slot="start">
+      <ion-buttons class="toolbar-buttons">
         <ion-button *ngIf="!isHomePage" (click)="navigateToHome()">
           <img src="assets/heart.svg" alt="Home" style="height: 24px;">
         </ion-button>
-      </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-button (click)="navigateToGitHub()">
-          <ion-icon name="logo-github"></ion-icon>
-        </ion-button>
-        <ion-button *ngIf="!isLoginPage" (click)="login()">
-          <img src="assets/blank-profile.svg" alt="Profile" style="height:24px">
-        </ion-button>
+        <div class="bottom-buttons">
+          <ion-button (click)="navigateToGitHub()">
+            <ion-icon name="logo-github"></ion-icon>
+          </ion-button>
+          <ion-button *ngIf="!isLoginPage" (click)="login()">
+            <img src="assets/blank-profile.svg" alt="Profile" style="height:24px">
+          </ion-button>
+        </div>
       </ion-buttons>
     </ion-toolbar>
-  </ion-header>
+  </div>
   <ion-content>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-content>
