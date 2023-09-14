@@ -1,5 +1,5 @@
 .page-background {
-    --background: #1f1f1f;
+    --background: #0f0f0f;
 }
 
 #container {
@@ -62,6 +62,12 @@ ion-grid {
                         text-decoration: underline;
                         text-align: center;
                         margin-top: 20px;
+
+                        ion-text {
+                            a {
+                                color: white;
+                            }
+                        }
                     }
 
                     #loginButton img {
