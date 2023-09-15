@@ -9,7 +9,10 @@
   flex-direction: row;
   padding: 50px;
   height: calc(100vh - 50px);
+  margin: 0 auto;
+  max-width: 1200px;
 }
+
 
 .info-container {
   flex: 1;
