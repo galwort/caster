@@ -1,22 +1,13 @@
 <ion-content class="page-background">
+  <h1 class="show-title">{{ show?.show_name }}</h1>
   <div class="main-container">
     <div class="info-container">
       <div class="header-container">
         <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}" class="show-image">
         <div class="text-container">
-          <h1 class="show-title">{{ show?.show_name }}</h1>
           <b><p class="show-subtitle">{{ show?.show_first_air_date | slice:0:4 }} - {{ show?.show_last_air_date | slice:0:4 }}</p>
           <p class="show-subtitle">{{ show?.show_seasons }} seasons</p>
           <p class="show-subtitle">{{ show?.show_episodes }} episodes</p></b>
-          <p class="blank-line"></p>
-          <p class="show-subtitle">{{ show?.show_overview }}</p>
-        </div>
-      </div>
-      <div class="seasons-container">
-        <div *ngFor="let season of seasons; let seasonIndex = index" class="season">
-          <div *ngFor="let episode of season.episodes; let episodeIndex = index" class="episode" [class.episode-selected]="selectedEpisode?.seasonIndex === seasonIndex && selectedEpisode?.episodeIndex === episodeIndex" (click)="loadCastImages(seasonIndex, episodeIndex)">
-            {{ episode }}
-          </div>
         </div>
       </div>
     </div>
