@@ -1,7 +1,7 @@
-.blue-horizontal-fade {
-  --background: linear-gradient(to right, #040d33, #113ccf 75%, #0a1a4d);
-  height: 100vh;
-  overflow: hidden;
+.page-background {
+  display: flex;
+  flex-direction: row;
+  --background: black url('/assets/background.svg') no-repeat center center / cover;
 }
 
 .main-container {
