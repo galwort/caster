@@ -4,11 +4,9 @@
     <div class="info-container">
       <div class="header-container">
         <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}" class="show-image">
-        <div class="text-container">
-          <b><p class="show-subtitle">{{ show?.show_first_air_date | slice:0:4 }} - {{ show?.show_last_air_date | slice:0:4 }}</p>
-          <p class="show-subtitle">{{ show?.show_seasons }} seasons</p>
-          <p class="show-subtitle">{{ show?.show_episodes }} episodes</p></b>
-        </div>
+        <b><p class="show-subtitle">{{ show?.show_first_air_date | slice:0:4 }} - {{ show?.show_last_air_date | slice:0:4 }}</p>
+        <p class="show-subtitle">{{ show?.show_seasons }} seasons</p>
+        <p class="show-subtitle">{{ show?.show_episodes }} episodes</p></b>
       </div>
     </div>
     <div class="cast-wrapper">
