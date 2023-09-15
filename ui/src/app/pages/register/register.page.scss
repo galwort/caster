@@ -1,5 +1,5 @@
-.blue-vertical-fade {
-    --background: linear-gradient(to bottom, #040d33, #113ccf);
+.page-background {
+    --background: black url('/assets/background.svg') no-repeat center center / cover;
 }
 
 #container {
@@ -18,40 +18,53 @@ ion-grid {
         height: 100%;
 
         ion-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             ion-card {
                 border-radius: 15px;
-                width: 50%;
-                margin: 0 auto;
+                width: 80%;
+                max-width: 400px;
                 box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
 
                 ion-card-header {
-                    --background: #bff5fd;;
+                    --background: #424242;;
 
                     ion-card-title {
                         text-align: center;
-                        color: #040d33;
+                        color: white;
                         font-weight: bold;
                         font-size: 1.5rem;
                     }
                 }
 
                 ion-card-content {
-                    background-color: #bff5fd;
+                    background-color: #424242;
 
                     ion-item {
-                        --background: #bff5fd;
+                        --background: #424242;
 
                         ion-label,
                         ion-input {
-                            color: #040d33;
+                            color: white;
                         }
                     }
 
                     ion-button {
-                        color: #040d33;
+                        color: #1f1f1f;
                         --background: white;
                         margin-top: 30px;
-                    }                    
+                    }                   
+                }
+            }
+
+            swiper-container {
+                height: 100vh;
+
+                img {
+                    height: 39vh;
+                    border-radius: 15px;
                 }
             }
         }

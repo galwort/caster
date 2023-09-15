@@ -8,6 +8,8 @@ import { RegisterPageRoutingModule } from './register-routing.module';
 
 import { RegisterPage } from './register.page';
 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { RegisterPage } from './register.page';
     IonicModule,
     RegisterPageRoutingModule
   ],
-  declarations: [RegisterPage]
+  declarations: [RegisterPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RegisterPageModule {}
