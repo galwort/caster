@@ -32,7 +32,21 @@ def get_tv(show_id: int):
     return response.json()
 
 
+@app.get("/tv/{show_id}/credits")
+def get_tv(show_id: int):
+    url = f"https://api.themoviedb.org/3/tv/{show_id}?api_key={TMDB_API_KEY}"
+    response = get(url)
+    return response.json()
+
+
 @app.get("/tv/{show_id}/season/{season_id}")
+def get_season(show_id: int, season_id: int):
+    url = f"https://api.themoviedb.org/3/tv/{show_id}/season/{season_id}?api_key={TMDB_API_KEY}"
+    response = get(url)
+    return response.json()
+
+
+@app.get("/tv/{show_id}/season/{season_id}/credits")
 def get_season(show_id: int, season_id: int):
     url = f"https://api.themoviedb.org/3/tv/{show_id}/season/{season_id}?api_key={TMDB_API_KEY}"
     response = get(url)
