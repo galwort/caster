@@ -1,5 +1,5 @@
-.blue-vertical-fade {
-  --background: linear-gradient(to bottom, #040d33, #113ccf);
+.page-background {
+  --background: black url('/assets/background.svg') no-repeat center center / cover;
 }
 
 #container {
@@ -20,8 +20,8 @@
 }
 
 img {
-  height: 200px;
-  width: auto;
+  width: 200px;
+  height: auto;
   margin: auto;
   display: block;
   padding: 20px;
