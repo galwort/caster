@@ -69,6 +69,18 @@ export class HomePage {
               });
             });
             for (let seasonId = 1; seasonId <= response.number_of_seasons; seasonId++) {
+              const seasonCastUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}/credits`;
+              this.http.get<any>(seasonCastUrl).subscribe(seasonCastResponse => {
+                seasonCastResponse.cast.slice(0,6).forEach((cast: any) => {
+                  const seasonCastData = {
+                    cast_name: cast.name,
+                    cast_image: cast.profile_path,
+                    cast_character: cast.character,
+                  };
+                  const seasonCastDocRef = doc(db, "shows", showId as string, "seasons", seasonId.toString(), "cast", cast.id.toString());
+                  setDoc(seasonCastDocRef, seasonCastData);
+                });
+              });
               const seasonUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}`;
               this.http.get<any>(seasonUrl).subscribe(seasonResponse => {
                 const seasonData = { season_episodes: seasonResponse.episodes.length };
