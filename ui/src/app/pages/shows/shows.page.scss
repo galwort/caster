@@ -11,7 +11,7 @@
   text-align: center;
   position: absolute;
   width: 100%;
-  top: 20px;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: row;
   padding: 50px;
+  padding-top: 100px;
   height: calc(100vh - 50px);
   margin: 0 auto;
   max-width: 1200px;
@@ -36,7 +37,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding-bottom: 40px;
 
     .show-image {
@@ -49,13 +50,11 @@
     }
 
     .show-subtitle {
-      font-size: 1rem;
+      font-size: 1.5rem;
       color: white;
-      display: -webkit-box;
-      -webkit-line-clamp: 6;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      margin-top: 15px;
       text-overflow: ellipsis;
+      text-align: center;
     }
   }
 }
