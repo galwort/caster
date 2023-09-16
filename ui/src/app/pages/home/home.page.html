@@ -1,20 +1,22 @@
 <ion-content class="page-background">
   <div id="container">
     <img height="150" src="assets/logo.svg" alt="logo" id="logo">
-    <ion-searchbar
-      [(ngModel)]="searchTerm"
-      (ionInput)="searchShows()"
-      [placeholder]="placeholderText">
-    </ion-searchbar>
-    <ng-container *ngIf="searchResults | async as results">
-      <div *ngIf="results.length > 0">
-        <ion-list>
-          <ion-item *ngFor="let result of results" (click)="selectShow(result)" class="clickable">
-            {{ result.name }}
-          </ion-item>
-        </ion-list>
-      </div>
-    </ng-container>
+    <div id="search-container">
+      <ion-searchbar
+        [(ngModel)]="searchTerm"
+        (ionInput)="searchShows()"
+        [placeholder]="placeholderText">
+      </ion-searchbar>
+      <ng-container *ngIf="searchResults | async as results">
+        <div *ngIf="results.length > 0" id="results-container">
+          <ion-list>
+            <ion-item *ngFor="let result of results" (click)="selectShow(result)" class="clickable">
+              {{ result.name }}
+            </ion-item>
+          </ion-list>
+        </div>
+      </ng-container>
+    </div>
     <div *ngIf="showProgressBar" id="progress-container">
       <ion-progress-bar [value]="progress / 100"></ion-progress-bar>
       <div id="progress-text">{{ completedCalls }} out of {{ totalCalls }} episodes pulled</div>

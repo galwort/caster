@@ -14,6 +14,19 @@
   transform: translateY(-10%);
 }
 
+#search-container {
+  position: relative;
+  width: 100%;
+}
+
+#results-container {
+  position: absolute;
+  width: 100%;
+  background: #000;
+  border-radius: 25px;
+  z-index: 1000;
+}
+
 #progress-container {
   margin-top: 40px;
 }
