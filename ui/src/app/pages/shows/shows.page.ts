@@ -30,6 +30,7 @@ export class ShowsPage implements OnInit {
       this.seasons = seasonsSnapshot.docs.map((doc, seasonIndex) => {
         const data = doc.data();
         return {
+          label: `Season ${seasonIndex + 1}`,
           episodes: Array.from({ length: data['season_episodes'] }, (_, episodeIndex) => (seasonIndex + 1) * 100 + (episodeIndex + 1))
         };
       });

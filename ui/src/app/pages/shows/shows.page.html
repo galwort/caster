@@ -7,6 +7,9 @@
         <p class="show-subtitle">{{ show?.show_first_air_date | slice:0:4 }} - {{ show?.show_last_air_date | slice:0:4 }}</p>
         <p class="show-subtitle">{{ show?.show_seasons }} seasons</p>
         <p class="show-subtitle">{{ show?.show_episodes }} episodes</p>
+        <ion-select placeholder="Season">
+          <ion-select-option *ngFor="let season of seasons" [value]="season.label">{{ season.label }}</ion-select-option>
+        </ion-select>
       </div>
     </div>
     <div class="cast-wrapper">
