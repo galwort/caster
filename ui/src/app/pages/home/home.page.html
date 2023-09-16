@@ -4,7 +4,7 @@
     <ion-searchbar
       [(ngModel)]="searchTerm"
       (ionInput)="searchShows()"
-      placeholder="Search for a show...">
+      [placeholder]="placeholderText">
     </ion-searchbar>
     <ng-container *ngIf="searchResults | async as results">
       <div *ngIf="results.length > 0">

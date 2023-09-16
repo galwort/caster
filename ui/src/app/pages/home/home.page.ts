@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, map } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
@@ -15,15 +15,39 @@ export const db = getFirestore(app);
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   searchResults: Observable<any[]> = of([]);
   searchTerm: string = '';
   showProgressBar = false;
   progress = 0;
   totalCalls = 0;
   completedCalls = 0;
+  
+  placeholderText: string = "Search for a show...";
+  placeholderTextOptions: string[] = [
+    "Celebrities! They're just like us!",
+    "I should probably go outside or something...",
+    "Yes I am still watching stop asking.",
+    "Search for a show...",
+    "Search for a show...",
+    "Search for a show...",
+    "Search for a show...",
+    "Search for a show...",
+    "Search for a show...",
+    "Search for a show...",
+  ];
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  ngOnInit() {
+    this.changePlaceholder();
+  }
+
+  changePlaceholder() {
+    const randomIndex = Math.floor(Math.random() * this.placeholderTextOptions.length);
+    this.placeholderText = this.placeholderTextOptions[randomIndex];
+  }
+
 
   searchShows() {
     const query = encodeURIComponent(this.searchTerm.trim());
