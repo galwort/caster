@@ -54,8 +54,20 @@ export class HomePage {
             show_episodes: response.number_of_episodes,
             show_overview: response.overview,
           };
-          this.totalCalls = response.number_of_episodes; 
+          this.totalCalls = response.number_of_episodes;
           setDoc(doc(db, "shows", showId as string), showData).then(() => {
+            const showCastUrl = `http://localhost:8000/tv/${showId}/credits`;
+            this.http.get<any>(showCastUrl).subscribe(showCastResponse => {
+              showCastResponse.cast.slice(0,6).forEach((cast: any) => {
+                const showCastData = {
+                  cast_name: cast.name,
+                  cast_image: cast.profile_path,
+                  cast_character: cast.character,
+                };
+                const showCastDocRef = doc(db, "shows", showId as string, "cast", cast.id.toString());
+                setDoc(showCastDocRef, showCastData);
+              });
+            });
             for (let seasonId = 1; seasonId <= response.number_of_seasons; seasonId++) {
               const seasonUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}`;
               this.http.get<any>(seasonUrl).subscribe(seasonResponse => {
