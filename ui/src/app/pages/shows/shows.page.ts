@@ -16,7 +16,9 @@ export class ShowsPage implements OnInit {
   castImages: string[] = [];
   selectedSeason: any = null;
   selectedEpisode: number | null = null;
-  castCharacters: { image: string; name: string }[] = [];
+  castCharacters: { image: string; name: string; order: number }[] = [];
+  rankCharacters: { image: string; name: string }[] = [];
+  bankCharacters: { image: string; name: string }[] = [];
 
   constructor(private route: ActivatedRoute) {}
 
@@ -65,13 +67,16 @@ export class ShowsPage implements OnInit {
         const character = data['cast_character'];
         return {
           image: data['cast_image'],
-          name: character.startsWith('Self') ? data['cast_name'] : character
+          name: character.startsWith('Self') ? data['cast_name'] : character,
+          order: data['cast_order']
         };
       });
+      this.rankCharacters = this.castCharacters.slice(0, 6);
+      this.bankCharacters = this.castCharacters.slice(6);
     }
   }
 
-  drop(event: CdkDragDrop<{ image: string; name: string; }[]>): void {
+  drop(event: CdkDragDrop<{ image: string; name: string; order: number;}[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
