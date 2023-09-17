@@ -82,11 +82,12 @@ export class HomePage implements OnInit {
           setDoc(doc(db, "shows", showId as string), showData).then(() => {
             const showCastUrl = `http://localhost:8000/tv/${showId}/credits`;
             this.http.get<any>(showCastUrl).subscribe(showCastResponse => {
-              showCastResponse.cast.slice(0,6).forEach((cast: any) => {
+              showCastResponse.cast.forEach((cast: any) => {
                 const showCastData = {
                   cast_name: cast.name,
                   cast_image: cast.profile_path,
                   cast_character: cast.character,
+                  cast_order: cast.order,
                 };
                 const showCastDocRef = doc(db, "shows", showId as string, "cast", cast.id.toString());
                 setDoc(showCastDocRef, showCastData);
@@ -95,11 +96,12 @@ export class HomePage implements OnInit {
             for (let seasonId = 1; seasonId <= response.number_of_seasons; seasonId++) {
               const seasonCastUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}/credits`;
               this.http.get<any>(seasonCastUrl).subscribe(seasonCastResponse => {
-                seasonCastResponse.cast.slice(0,6).forEach((cast: any) => {
+                seasonCastResponse.cast.forEach((cast: any) => {
                   const seasonCastData = {
                     cast_name: cast.name,
                     cast_image: cast.profile_path,
                     cast_character: cast.character,
+                    cast_order: cast.order,
                   };
                   const seasonCastDocRef = doc(db, "shows", showId as string, "seasons", seasonId.toString(), "cast", cast.id.toString());
                   setDoc(seasonCastDocRef, seasonCastData);
@@ -116,17 +118,18 @@ export class HomePage implements OnInit {
                       const episodeData = {
                         episode_name: episodeResponse.name,
                         episode_air_date: episodeResponse.air_date,
-                        episode_overview: episodeResponse.overview,
+                        episode_overview: episodeResponse.overview, 
                       };
                       const episodeDocRef = doc(db, "shows", showId as string, "seasons", seasonId.toString(), "episodes", episodeId.toString());
                       setDoc(episodeDocRef, episodeData).then(() => {
                         const castUrl = `http://localhost:8000/tv/${showId}/season/${seasonId}/episode/${episodeId}/credits`;
                         this.http.get<any>(castUrl).subscribe(castResponse => {
-                          castResponse.cast.slice(0, 6).forEach((cast: any) => {
+                          castResponse.cast.forEach((cast: any) => {
                             const castData = {
                               cast_name: cast.name,
                               cast_image: cast.profile_path,
                               cast_character: cast.character,
+                              cast_order: cast.order,
                             };
                             const castDocRef = doc(db, "shows", showId as string, "seasons", seasonId.toString(), "episodes", episodeId.toString(), "cast", cast.id.toString());
                             setDoc(castDocRef, castData);
