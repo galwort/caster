@@ -20,7 +20,6 @@
 .main-container {
   display: flex;
   flex-direction: row;
-  padding: 50px;
   padding-top: 125px;
   height: calc(100vh - 50px);
   margin: 0 auto;
@@ -40,7 +39,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 40px;
 
     .show-image {
       width: 250px;
@@ -126,7 +124,7 @@
   .cast-button {
     background: #222;
     color: white;
-    padding: 10px 15px;
+    padding: 15px 15px;
     text-align: center;
     text-decoration: none;
     display: block;
@@ -208,6 +206,6 @@
     3px 3px 5px rgba(0, 0, 0, 0.2),
     -3px -3px 5px rgba(255, 255, 255, 0.5);
   border-radius: 30px;
-  padding-bottom: 80px;
   position: relative;
+  margin-top: 30px;
 }
