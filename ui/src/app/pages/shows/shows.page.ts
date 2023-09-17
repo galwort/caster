@@ -17,8 +17,8 @@ export class ShowsPage implements OnInit {
   selectedSeason: any = null;
   selectedEpisode: number | null = null;
   castCharacters: { image: string; name: string; order: number }[] = [];
-  rankCharacters: { image: string; name: string }[] = [];
-  bankCharacters: { image: string; name: string }[] = [];
+  rankCharacters: { image: string; name: string; order: number }[] = [];
+  bankCharacters: { image: string; name: string; order: number }[] = [];
 
   constructor(private route: ActivatedRoute) {}
 

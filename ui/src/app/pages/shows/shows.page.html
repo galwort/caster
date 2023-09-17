@@ -15,14 +15,14 @@
           </ion-select>
         </ion-item>
         <div class="bank-container">
-          
+
         </div>
       </div>
     </div>
     <div class="cast-wrapper">
       <div class="cast-container" *ngIf="selectedEpisode">
-        <div cdkDropList [cdkDropListData]="castCharacters" (cdkDropListDropped)="drop($event)">
-          <div class="cast-member" *ngFor="let character of castCharacters" cdkDrag>
+        <div cdkDropList [cdkDropListData]="rankCharacters" (cdkDropListDropped)="drop($event)">
+          <div class="cast-member" *ngFor="let character of rankCharacters" cdkDrag>
             <div class="cast-image-container">
               <img [src]="character.image ? 'https://image.tmdb.org/t/p/w500' + character.image : '../assets/blank-profile.svg'" alt="Cast Image">
             </div>
