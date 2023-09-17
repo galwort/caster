@@ -56,6 +56,16 @@
       text-overflow: ellipsis;
       text-align: center;
     }
+
+    ion-item {
+      --background: transparent;
+
+      ion-select {
+        max-width: 200px;
+        font-size: 1.5rem;
+        margin: 0 auto;
+      }
+    }
   }
 }
 
