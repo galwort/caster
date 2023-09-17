@@ -197,3 +197,17 @@
     }
   }
 }
+
+.bank-container {
+  width: 250px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: #333;
+  box-shadow: 
+    3px 3px 5px rgba(0, 0, 0, 0.2),
+    -3px -3px 5px rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  padding-bottom: 80px;
+  position: relative;
+}
