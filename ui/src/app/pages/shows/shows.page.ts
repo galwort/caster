@@ -44,7 +44,8 @@ export class ShowsPage implements OnInit {
   }
 
   onEpisodeSelect(event: any) {
-    this.selectedEpisode = event.detail.value; 
+    this.selectedEpisode = event.detail.value;
+    this.loadCastImages();
   }
 
   async loadCastImages() {
