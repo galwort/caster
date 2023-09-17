@@ -32,7 +32,7 @@ export class ShowsPage implements OnInit {
         const data = doc.data();
         return {
           label: `Season ${seasonIndex + 1}`,
-          episodes: Array.from({ length: data['season_episodes'] }, (_, episodeIndex) => (seasonIndex + 1) * 100 + (episodeIndex + 1))
+          episodes: Array.from({ length: data['season_episodes'] }, (_, episodeIndex) => episodeIndex + 1)
         };
       });
     }
@@ -53,7 +53,7 @@ export class ShowsPage implements OnInit {
     const seasonIndex = this.seasons.indexOf(this.selectedSeason);
     const episodeIndex = this.selectedEpisode;
 
-    this.castCharacters = [];  // Clear previous cast characters
+    this.castCharacters = [];
 
     const showId = this.route.snapshot.paramMap.get('id');
     if (showId) {
