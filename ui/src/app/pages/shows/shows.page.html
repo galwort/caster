@@ -8,10 +8,16 @@
         <p class="show-subtitle">{{ show?.show_seasons }} seasons</p>
         <p class="show-subtitle">{{ show?.show_episodes }} episodes</p>
         <ion-item align-self-center>
-          <ion-select placeholder="Season">
+          <ion-select placeholder="Season" (ionChange)="onSeasonSelect($event)">
             <ion-select-option *ngFor="let season of seasons" [value]="season.label">{{ season.label }}</ion-select-option>
           </ion-select>
         </ion-item>
+        <ion-item align-self-center *ngIf="selectedSeason">
+          <ion-select placeholder="Episode" (ionChange)="onEpisodeSelect($event)">
+            <ion-select-option *ngFor="let episodeIndex of selectedSeason.episodes" [value]="episodeIndex">{{ 'Episode ' + (episodeIndex % 100) }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
       </div>
     </div>
     <div class="cast-wrapper">

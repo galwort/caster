@@ -14,7 +14,8 @@ export class ShowsPage implements OnInit {
   show: any;
   seasons: any[] = [];
   castImages: string[] = [];
-  selectedEpisode: { seasonIndex: number; episodeIndex: number } | null = null;
+  selectedSeason: any = null;
+  selectedEpisode: number | null = null;
   castCharacters: { image: string; name: string }[] = [];
 
   constructor(private route: ActivatedRoute) {}
@@ -37,17 +38,26 @@ export class ShowsPage implements OnInit {
     }
   }
 
-  async loadCastImages(seasonIndex: number, episodeIndex: number) {
-    if (this.selectedEpisode?.seasonIndex === seasonIndex && this.selectedEpisode?.episodeIndex === episodeIndex) {
-      this.selectedEpisode = null;
-      this.castCharacters = [];
-      return;
-    }
+  onSeasonSelect(event: any) {
+    this.selectedSeason = this.seasons.find(season => season.label === event.detail.value);
+    this.selectedEpisode = null; 
+  }
 
-    this.selectedEpisode = { seasonIndex, episodeIndex };
+  onEpisodeSelect(event: any) {
+    this.selectedEpisode = event.detail.value; 
+  }
+
+  async loadCastImages() {
+    if (!this.selectedSeason || this.selectedEpisode === null) return;
+
+    const seasonIndex = this.seasons.indexOf(this.selectedSeason);
+    const episodeIndex = this.selectedEpisode;
+
+    this.castCharacters = [];  // Clear previous cast characters
+
     const showId = this.route.snapshot.paramMap.get('id');
     if (showId) {
-      const episodeCollection = collection(db, "shows", showId, "seasons", (seasonIndex + 1).toString(), "episodes", (episodeIndex + 1).toString(), "cast");
+      const episodeCollection = collection(db, "shows", showId, "seasons", (seasonIndex + 1).toString(), "episodes", episodeIndex.toString(), "cast");
       const episodeSnapshot = await getDocs(episodeCollection);
       this.castCharacters = episodeSnapshot.docs.map(doc => {
         const data = doc.data();
