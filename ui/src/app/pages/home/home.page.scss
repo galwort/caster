@@ -28,7 +28,9 @@
 }
 
 #progress-container {
-  margin-top: 40px;
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
 }
 
 #progress-text {
