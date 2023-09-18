@@ -44,7 +44,6 @@
       width: 250px;
       height: auto;
       margin-bottom: 20px;
-      border: 3px solid #ff9911;
       border-radius: 10px;
       box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
     }
@@ -98,7 +97,6 @@
       width: 80px;
       height: 80px;
       margin: 10px;
-      border: 3px solid #ff9911;
       border-radius: 50%;
       overflow: hidden;
       box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
@@ -114,7 +112,7 @@
     .cast-name {
       display: block;
       font-size: 1.5rem;
-      font-weight: bold;
+      font-family: 'Varela Round', sans-serif;
       color: white;
       text-align: center;
       margin-left: 10px;
@@ -129,7 +127,7 @@
     text-decoration: none;
     display: block;
     font-size: 24px;
-    font-weight: bold;
+    font-family: 'Varela Round', sans-serif;
     margin: 10px auto;
     cursor: pointer;
     border-radius: 5px;
@@ -161,8 +159,7 @@
   .cast-name {
     display: block;
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #ff9911;
+    font-family: 'Varela Round', sans-serif;
     text-align: left;
     margin-left: 10px;
     line-height: normal;
@@ -182,7 +179,6 @@
     width: 150px;
     height: 150px;
     margin: 10px;
-    border: 3px solid #ff9911;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
