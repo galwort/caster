@@ -37,12 +37,15 @@ export class ShowsPage implements OnInit {
           episodes: Array.from({ length: data['season_episodes'] }, (_, episodeIndex) => episodeIndex + 1)
         };
       });
+
+      await this.loadCastImages();
     }
   }
 
   onSeasonSelect(event: any) {
     this.selectedSeason = this.seasons.find(season => season.label === event.detail.value);
     this.selectedEpisode = null; 
+    this.loadCastImages();
   }
 
   onEpisodeSelect(event: any) {
@@ -51,30 +54,37 @@ export class ShowsPage implements OnInit {
   }
 
   async loadCastImages() {
-    if (!this.selectedSeason || this.selectedEpisode === null) return;
-
-    const seasonIndex = this.seasons.indexOf(this.selectedSeason);
-    const episodeIndex = this.selectedEpisode;
-
-    this.castCharacters = [];
-
     const showId = this.route.snapshot.paramMap.get('id');
-    if (showId) {
-      const episodeCollection = collection(db, "shows", showId, "seasons", (seasonIndex + 1).toString(), "episodes", episodeIndex.toString(), "cast");
-      const episodeSnapshot = await getDocs(episodeCollection);
-      this.castCharacters = episodeSnapshot.docs.map(doc => {
-        const data = doc.data();
-        const character = data['cast_character'];
-        return {
-          image: data['cast_image'],
-          name: character.startsWith('Self') ? data['cast_name'] : character,
-          order: data['cast_order']
-        };
-      });
-      this.rankCharacters = this.castCharacters.slice(0, 6);
-      this.bankCharacters = this.castCharacters.slice(6);
+    if (!showId) return;
+  
+    let castCollection;
+  
+    if (this.selectedEpisode !== null) {
+      const seasonIndex = this.seasons.indexOf(this.selectedSeason);
+      const episodeIndex = this.selectedEpisode;
+      castCollection = collection(db, "shows", showId, "seasons", (seasonIndex + 1).toString(), "episodes", episodeIndex.toString(), "cast");
+    } else if (this.selectedSeason) {
+      const seasonIndex = this.seasons.indexOf(this.selectedSeason);
+      castCollection = collection(db, "shows", showId, "seasons", (seasonIndex + 1).toString(), "cast");
+    } else {
+      castCollection = collection(db, "shows", showId, "cast");
     }
+  
+    const castSnapshot = await getDocs(castCollection);
+    this.castCharacters = castSnapshot.docs.map(doc => {
+      const data = doc.data();
+      const character = data['cast_character'];
+      return {
+        image: data['cast_image'],
+        name: character.startsWith('Self') ? data['cast_name'] : character,
+        order: data['cast_order']
+      };
+    });
+  
+    this.rankCharacters = this.castCharacters.slice(0, 6);
+    this.bankCharacters = this.castCharacters.slice(6);
   }
+  
 
   drop(event: CdkDragDrop<{ image: string; name: string; order: number;}[]>): void {
     if (event.previousContainer === event.container) {
