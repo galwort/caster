@@ -1,7 +1,7 @@
 .page-background {
   display: flex;
   flex-direction: row;
-  --background: var(--theme-bg) url('/assets/background.svg') no-repeat center center / cover;
+  --background: var(--theme-bg) url('/assets/blur-background.svg') no-repeat center center / cover;
 }
 
 .show-title {
