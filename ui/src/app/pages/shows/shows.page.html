@@ -2,31 +2,29 @@
   <h1 class="show-title">{{ show?.show_name }}</h1>
   <div class="main-container">
     <div class="info-container">
-      <div class="header-container">
-        <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}" class="show-image">
-        <ion-item align-self-center>
-          <ion-select placeholder="Season" (ionChange)="onSeasonSelect($event)">
-            <ion-select-option *ngFor="let season of seasons" [value]="season.label">{{ season.label }}</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-item align-self-center *ngIf="selectedSeason">
-          <ion-select #episodeSelect placeholder="Episode" (ionChange)="onEpisodeSelect($event)">
-            <ion-select-option *ngFor="let episodeIndex of selectedSeason.episodes" [value]="episodeIndex">{{ 'Episode ' + (episodeIndex % 100) }}</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <div cdkDropListGroup>
-          <div class="bank-container" *ngIf="bankCharacters.length > 0" cdkDropList #bankList="cdkDropList">
-            <div class="bank-member" *ngFor="let character of bankCharacters" cdkDrag>
-              <div class="bank-image-container">
-                <img [src]="character.image ? 'https://image.tmdb.org/t/p/w500' + character.image : '../assets/blank-profile.svg'" alt="Cast Image">
-              </div>
+      <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}" class="show-image">
+      <ion-item align-self-center>
+        <ion-select placeholder="Season" (ionChange)="onSeasonSelect($event)">
+          <ion-select-option *ngFor="let season of seasons" [value]="season.label">{{ season.label }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item align-self-center *ngIf="selectedSeason">
+        <ion-select #episodeSelect placeholder="Episode" (ionChange)="onEpisodeSelect($event)">
+          <ion-select-option *ngFor="let episodeIndex of selectedSeason.episodes" [value]="episodeIndex">{{ 'Episode ' + (episodeIndex % 100) }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div cdkDropListGroup>
+        <div class="bank-container" *ngIf="bankCharacters.length > 0" cdkDropList #bankList="cdkDropList">
+          <div class="bank-member" *ngFor="let character of bankCharacters" cdkDrag>
+            <div class="bank-image-container">
+              <img [src]="character.image ? 'https://image.tmdb.org/t/p/w500' + character.image : '../assets/blank-profile.svg'" alt="Cast Image">
             </div>
           </div>
-          <div cdkDropList #placeholder></div>
         </div>
+        <div cdkDropList #placeholder></div>
       </div>
     </div>
-    <div class="cast-wrapper">
+    <div class="rank-container">
       <div class="cast-container">
         <div cdkDropList [cdkDropListData]="rankCharacters" (cdkDropListDropped)="drop($event)">
           <div class="cast-member" *ngFor="let character of rankCharacters" cdkDrag>
