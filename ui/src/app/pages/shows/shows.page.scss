@@ -27,6 +27,7 @@
   height: calc(100vh - 50px);
   margin: 0 auto;
   max-width: 900px;
+  max-height: 800px;
 }
 
 .info-container {
@@ -90,7 +91,7 @@
     .cast-member {
       display: flex;
       align-items: center;
-      margin: 10px;
+      margin-right: 10px;
 
       .cast-image-container {
         width: 80px;
@@ -112,14 +113,14 @@
         display: block;
         font-size: 1.5rem;
         font-family: 'Varela Round', sans-serif;
-        color: var(--theme-container-fg);
+        color: var(--theme-text);
         text-align: center;
         margin-left: 10px;
       }
     }
 
     .cast-button {
-      background: #222;
+      background: var(--theme-container-bg-dark);
       color: var(--theme-container-fg);
       padding: 15px 15px;
       text-align: center;
@@ -157,6 +158,8 @@
     display: block;
     font-size: 1.5rem;
     font-family: 'Varela Round', sans-serif;
+    font-weight: bold;
+    color: var(--theme-text);
     text-align: left;
     margin-left: 10px;
     line-height: normal;
@@ -170,7 +173,6 @@
 .cast-member {
   display: flex;
   align-items: center;
-  margin: 10px;
 
   .cast-image-container {
     width: 150px;
