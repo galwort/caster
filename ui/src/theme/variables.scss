@@ -4,6 +4,8 @@
 /** Ionic CSS Variables **/
 :root {
   --theme-color: white;
+  --theme-search-bg: white;
+  --theme-search-fg: #15a9fc;
 
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -86,6 +88,8 @@
 
   :root {
     --theme-color: black;
+    --theme-search-bg: rgba(25, 25, 25, 0.5);
+    --theme-search-fg: #dbdbdb;
 
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;

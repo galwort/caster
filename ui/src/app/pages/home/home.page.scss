@@ -48,10 +48,10 @@ img {
 }
 
 ion-searchbar {
-  --background: rgba(25, 25, 25, 0.5);
+  --background: var(--theme-search-bg);
   --border-radius: 25px;
-  --box-shadow: 0 0 0 2px #dbdbdb;
-  --icon-color: #dbdbdb;
+  --box-shadow: 0 0 0 2px var(--theme-search-fg);
+  --icon-color: var(--theme-search-fg);
 }
 
 .clickable {
