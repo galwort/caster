@@ -4,7 +4,10 @@
 /** Ionic CSS Variables **/
 :root {
   --theme-bg: white;
-  --theme-fg: black;
+  --theme-fg: #15a9fc;
+  --theme-container-bg: #15a9fc;
+  --theme-container-bg-secondary: #fc4f4f;
+  --theme-container-fg: white;
   --theme-search-bg: white;
   --theme-search-fg: #15a9fc;
 
@@ -90,6 +93,9 @@
   :root {
     --theme-bg: black;
     --theme-fg: white;
+    --theme-container-bg: #333;
+    --theme-container-bg-secondary: #333;
+    --theme-container-fg: white;
     --theme-search-bg: rgba(25, 25, 25, 0.5);
     --theme-search-fg: #dbdbdb;
 
