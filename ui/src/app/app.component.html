@@ -3,14 +3,14 @@
     <ion-toolbar>
       <ion-buttons class="toolbar-buttons">
         <ion-button *ngIf="!isHomePage" (click)="navigateToHome()">
-          <img src="assets/heart.svg" alt="Home" style="height: 24px;">
+          <img src="assets/heart.svg" alt="Home" style="height: 40px;">
         </ion-button>
         <div class="bottom-buttons">
           <ion-button (click)="navigateToGitHub()">
             <ion-icon name="logo-github"></ion-icon>
           </ion-button>
           <ion-button *ngIf="!isLoginPage" (click)="login()">
-            <img src="assets/blank-profile.svg" alt="Profile" style="height:24px">
+            <img src="assets/blank-profile.svg" alt="Profile" style="height:40px">
           </ion-button>
         </div>
       </ion-buttons>
