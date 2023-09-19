@@ -3,7 +3,8 @@
 
 /** Ionic CSS Variables **/
 :root {
-  --theme-color: white;
+  --theme-bg: white;
+  --theme-fg: black;
   --theme-search-bg: white;
   --theme-search-fg: #15a9fc;
 
@@ -87,7 +88,8 @@
    */
 
   :root {
-    --theme-color: black;
+    --theme-bg: black;
+    --theme-fg: white;
     --theme-search-bg: rgba(25, 25, 25, 0.5);
     --theme-search-fg: #dbdbdb;
 
