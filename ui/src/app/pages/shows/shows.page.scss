@@ -68,6 +68,12 @@
         margin: 0 auto;
         font-family: 'Varela Round', sans-serif;
       }
+
+      ion-select::part(text),
+      ion-select::part(icon),
+      ion-select::part(placeholder) {
+        color: var(--theme-text);
+      }
     }
   }
 }
