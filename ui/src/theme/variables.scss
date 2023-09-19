@@ -3,6 +3,8 @@
 
 /** Ionic CSS Variables **/
 :root {
+  --theme-color: white;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -82,7 +84,9 @@
    * -------------------------------------------
    */
 
-  body {
+  :root {
+    --theme-color: black;
+
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
