@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { getFirestore, doc, getDoc, collection, getDocs } from "firebase/firestore";
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
@@ -20,7 +20,9 @@ export class ShowsPage implements OnInit {
   rankCharacters: { image: string; name: string; order: number }[] = [];
   bankCharacters: { image: string; name: string; order: number }[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  @ViewChild('episodeSelect') episodeSelect: any;
+
+  constructor(private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
 
   async ngOnInit() {
     const showId = this.route.snapshot.paramMap.get('id');
@@ -35,7 +37,7 @@ export class ShowsPage implements OnInit {
         return {
           label: `Season ${seasonIndex + 1}`,
           episodes: Array.from({ length: data['season_episodes'] }, (_, episodeIndex) => episodeIndex + 1)
-        };
+        };  
       });
 
       await this.loadCastImages();
@@ -44,9 +46,14 @@ export class ShowsPage implements OnInit {
 
   onSeasonSelect(event: any) {
     this.selectedSeason = this.seasons.find(season => season.label === event.detail.value);
-    this.selectedEpisode = null; 
+    this.selectedEpisode = null;
     this.loadCastImages();
+    
+    if (this.episodeSelect) {
+      this.episodeSelect.value = null;
+    }
   }
+  
 
   onEpisodeSelect(event: any) {
     this.selectedEpisode = event.detail.value;

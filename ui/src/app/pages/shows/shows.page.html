@@ -10,7 +10,7 @@
           </ion-select>
         </ion-item>
         <ion-item align-self-center *ngIf="selectedSeason">
-          <ion-select placeholder="Episode" (ionChange)="onEpisodeSelect($event)">
+          <ion-select #episodeSelect placeholder="Episode" (ionChange)="onEpisodeSelect($event)">
             <ion-select-option *ngFor="let episodeIndex of selectedSeason.episodes" [value]="episodeIndex">{{ 'Episode ' + (episodeIndex % 100) }}</ion-select-option>
           </ion-select>
         </ion-item>
