@@ -26,6 +26,14 @@
     align-items: center;
 }
 
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #15a9fc;
+    object-fit: cover;
+}
+
 ion-button {
     color: #15a9fc;
 

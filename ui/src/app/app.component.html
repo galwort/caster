@@ -10,7 +10,7 @@
             <ion-icon name="logo-github"></ion-icon>
           </ion-button>
           <ion-button *ngIf="!isLoginPage" (click)="login()">
-            <img src="assets/blank-profile.svg" alt="Profile" style="height:40px">
+            <img [src]="profilePicUrl" alt="Profile" class="profile">
           </ion-button>
         </div>
       </ion-buttons>

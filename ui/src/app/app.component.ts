@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { register } from 'swiper/element/bundle';
+import { AuthService } from './services/auth.service';
 register();
 
 @Component({
@@ -9,11 +10,19 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  public profilePicUrl: string;
   isHomePage: boolean = false;
   isLoginPage: boolean = false;
   isLandingPage: boolean = true;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.authService.userPic.subscribe(url => {
+      this.profilePicUrl = url;
+    });
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isHomePage = event.urlAfterRedirects === '/home';
