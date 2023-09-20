@@ -8,8 +8,8 @@
 
          @media (prefers-color-scheme: dark) {
             :root {
-            --right-wing: #0f0f0f;
-            --left-wing: #0f0f0f;
+            --right-wing: #222;
+            --left-wing: #222;
             }
          }
       </style>

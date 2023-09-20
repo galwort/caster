@@ -8,18 +8,13 @@
 
         @media (prefers-color-scheme: dark) {
             :root {
-            --right-wing: #0f0f0f;
-            --left-wing: #0f0f0f;
-            }
-            .blur {
-            filter: none !important;
+            --right-wing: #222;
+            --left-wing: #222;
             }
         }
 
-        @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
-            .blur {
+        .blur {
             filter: url(#f1);
-            }
         }
     </style>
     <filter id="f1" x="-0.2" y="-0.2" width="1.4" height="1.4">
