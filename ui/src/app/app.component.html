@@ -2,15 +2,17 @@
   <div class="sidebar" *ngIf="!isLandingPage">
     <ion-toolbar>
       <ion-buttons class="toolbar-buttons">
+        <ion-button class="profile-button" *ngIf="!isLoginPage" (click)="login()">
+          <div class="profile">
+            <img [src]="profilePicUrl" alt="Profile">
+          </div>
+        </ion-button>
         <ion-button *ngIf="!isHomePage" (click)="navigateToHome()">
           <img src="assets/heart.svg" alt="Home" style="height: 40px;">
         </ion-button>
         <div class="bottom-buttons">
           <ion-button (click)="navigateToGitHub()">
             <ion-icon name="logo-github"></ion-icon>
-          </ion-button>
-          <ion-button *ngIf="!isLoginPage" (click)="login()">
-            <img [src]="profilePicUrl" alt="Profile" class="profile">
           </ion-button>
         </div>
       </ion-buttons>
