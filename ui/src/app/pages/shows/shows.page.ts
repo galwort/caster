@@ -3,6 +3,7 @@
   import { getFirestore, doc, getDoc, collection, getDocs } from "firebase/firestore";
   import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragMove, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
   import { ViewportRuler } from '@angular/cdk/scrolling';
+  import { AuthService } from '../../services/auth.service';
 
 
   export const db = getFirestore();
@@ -13,6 +14,7 @@
     styleUrls: ['shows.page.scss'],
   })
   export class ShowsPage implements OnInit {
+    userId: string | null = null;
     show: any;
     seasons: any[] = [];
     castImages: string[] = [];
@@ -29,7 +31,7 @@
     public activeContainer: any;
 
 
-    constructor(private viewportRuler: ViewportRuler, private route: ActivatedRoute, private cdr: ChangeDetectorRef) {
+    constructor(private viewportRuler: ViewportRuler, private route: ActivatedRoute, private cdr: ChangeDetectorRef, private authService: AuthService) {
       this.target = null;
       this.source = null;
     }
@@ -122,5 +124,10 @@
           event.currentIndex
         );
       }
+    }
+
+    async saveRanking() {
+      const userId = this.authService.getCurrentUserId();
+      console.log(userId);
     }
   }
