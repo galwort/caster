@@ -15,6 +15,8 @@
     height: 100px;
     display: inline-block;
     vertical-align: center;
+    justify-content: center;
+    position: relative;
 
     .show-title {
       font-family: 'Varela Round', sans-serif;
@@ -24,8 +26,25 @@
       color: var(--theme-container-fg);
       background-color: var(--theme-container-bg-secondary);
       border-radius: 30px;
-      padding: 15px 30px;
+      padding: 15px 70px;
       box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .wing {
+      height: 40px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-100%);
+      z-index: 1;
+    }
+
+    .west-wing {
+      left: 15px;
+    }
+
+    .east-wing {
+      right: 15px;
     }
   }
 }

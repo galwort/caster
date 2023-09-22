@@ -1,8 +1,10 @@
 <ion-content class="page-background">
   <div class="center-container">
     <div class="header-container">
+      <img src="../assets/west-wing.svg" class="wing west-wing">
       <h1 class="show-title">{{ show?.show_name }}</h1>
-    </div>
+      <img src="../assets/east-wing.svg" class="wing east-wing">
+    </div>    
     <div class="main-container">
       <div class="info-container">
         <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}" class="show-image">
