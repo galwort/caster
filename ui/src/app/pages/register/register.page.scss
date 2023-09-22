@@ -26,7 +26,8 @@ ion-grid {
             ion-card {
                 border-radius: 15px;
                 width: 80%;
-                max-width: 400px;
+                max-width: 25vw;
+                min-width: 300px;
                 box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
 
                 ion-card-header {
@@ -66,6 +67,8 @@ ion-grid {
                 img {
                     height: 39vh;
                     border-radius: 15px;
+                    object-fit: cover;
+                    max-width: 300px;
                 }
             }
         }
