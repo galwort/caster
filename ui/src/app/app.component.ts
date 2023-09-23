@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { register } from 'swiper/element/bundle';
 import { AuthService } from './services/auth.service';
+import { register } from 'swiper/element/bundle';
+
 register();
 
 @Component({
@@ -40,7 +41,13 @@ export class AppComponent {
     window.open('https://github.com/galwort/caster', '_blank');
   }
 
-  login() {
-    this.router.navigate(['/login']);
-  }
+  loginOrProfile() {
+    const userId = this.authService.getCurrentUserId();
+    console.log('Current User ID:', userId);
+    if (userId) {
+      this.router.navigate(['/profile']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }  
 }

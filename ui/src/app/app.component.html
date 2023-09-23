@@ -2,7 +2,7 @@
   <div class="sidebar" *ngIf="!isLandingPage">
     <ion-toolbar>
       <ion-buttons class="toolbar-buttons">
-        <ion-button class="profile-button" *ngIf="!isLoginPage" (click)="login()">
+        <ion-button class="profile-button" *ngIf="!isLoginPage" (click)="loginOrProfile()">
           <div class="profile">
             <img [src]="profilePicUrl" alt="Profile">
           </div>
