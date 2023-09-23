@@ -13,7 +13,7 @@ register();
 export class AppComponent {
   public profilePicUrl: string;
   isHomePage: boolean = false;
-  isLoginPage: boolean = false;
+  isLoginOrProfilePage: boolean = false;
   isLandingPage: boolean = true;
 
   constructor(
@@ -27,7 +27,7 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isHomePage = event.urlAfterRedirects === '/home';
-        this.isLoginPage = event.urlAfterRedirects === '/login';
+        this.isLoginOrProfilePage = (event.urlAfterRedirects === '/login') || (event.urlAfterRedirects === '/profile');
         this.isLandingPage = event.urlAfterRedirects === '/' || event.urlAfterRedirects === '';
       }
     });
