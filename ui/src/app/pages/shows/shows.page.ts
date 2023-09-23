@@ -189,16 +189,15 @@
         timestamp: Timestamp.now(),
       });
 
-      
       const castRankingsCollection = collection(userRankingRef, 'cast_rankings');
-
+    
       for (let i = 0; i < this.rankCharacters.length; i++) {
         const castMember = this.rankCharacters[i];
-        await addDoc(castRankingsCollection, {
-          order: i + 1,
-          cast_id: castMember.name, 
-        }
-      );
+        const order = i + 1;
+        const castRankingDocRef = doc(castRankingsCollection, order.toString());
+        await setDoc(castRankingDocRef, {
+          cast_id: castMember.name,
+        });
+      }
     }
-  }
 }
