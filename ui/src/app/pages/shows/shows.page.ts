@@ -4,6 +4,9 @@
   import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragMove, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
   import { ViewportRuler } from '@angular/cdk/scrolling';
   import { AuthService } from '../../services/auth.service';
+  import { query, orderBy, limit, startAfter } from "firebase/firestore";
+  import { Router } from '@angular/router';
+
 
 
   export const db = getFirestore();
@@ -14,6 +17,8 @@
     styleUrls: ['shows.page.scss'],
   })
   export class ShowsPage implements OnInit {
+    nextShow: any = null;
+    prevShow: any = null;
     userId: string | null = null;
     show: any;
     seasons: any[] = [];
@@ -31,10 +36,17 @@
     public activeContainer: any;
 
 
-    constructor(private viewportRuler: ViewportRuler, private route: ActivatedRoute, private cdr: ChangeDetectorRef, private authService: AuthService) {
-      this.target = null;
-      this.source = null;
+    constructor(
+      private viewportRuler: ViewportRuler,
+      private route: ActivatedRoute,
+      private cdr: ChangeDetectorRef,
+      private authService: AuthService,
+      private router: Router
+    ) {
+        this.target = null;
+        this.source = null;
     }
+    
 
     @ViewChild('episodeSelect') episodeSelect: any;
     @ViewChild(CdkDropListGroup) listGroup: CdkDropListGroup<CdkDropList>;
@@ -57,6 +69,46 @@
         });
 
         await this.loadCastImages();
+        await this.loadAdjacentShows(showId);
+      }
+    }
+
+    async loadAdjacentShows(currentShowId: string) {
+      const currentShowDoc = await getDoc(doc(db, "shows", currentShowId));
+      const currentShowData = currentShowDoc.data() || {};
+
+      const currentShowName = currentShowData['show_name'];
+
+      const nextQuery = query(
+        collection(db, "shows"),
+        orderBy("show_name"),
+        startAfter(currentShowName),
+        limit(1)
+      );
+  
+      const nextSnapshot = await getDocs(nextQuery);
+      this.nextShow = nextSnapshot.docs.length ? nextSnapshot.docs[0].id : null;
+  
+      const prevQuery = query(
+        collection(db, "shows"),
+        orderBy("show_name", "desc"),
+        startAfter(currentShowName),
+        limit(1)
+      );
+  
+      const prevSnapshot = await getDocs(prevQuery);
+      this.prevShow = prevSnapshot.docs.length ? prevSnapshot.docs[0].id : null;
+    }
+
+    navigateToNextShow() {
+      if (this.nextShow) {
+        this.router.navigate(['/shows', this.nextShow]);
+      }
+    }
+    
+    navigateToPrevShow() {
+      if (this.prevShow) {
+        this.router.navigate(['/shows', this.prevShow]);
       }
     }
 
