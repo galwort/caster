@@ -1,6 +1,6 @@
   import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
   import { ActivatedRoute } from '@angular/router';
-  import { getFirestore, doc, getDoc, collection, getDocs } from "firebase/firestore";
+  import { addDoc, getFirestore, doc, getDoc, collection, getDocs, setDoc, Timestamp } from "firebase/firestore";
   import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragMove, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
   import { ViewportRuler } from '@angular/cdk/scrolling';
   import { AuthService } from '../../services/auth.service';
@@ -180,6 +180,25 @@
 
     async saveRanking() {
       const userId = this.authService.getCurrentUserId();
-      console.log(userId);
+      const showId = this.route.snapshot.paramMap.get('id');
+
+      const userRankingRef = doc(collection(db, 'user_rankings'));
+      await setDoc(userRankingRef, {
+        user_uid: userId,
+        show_id: showId,
+        timestamp: Timestamp.now(),
+      });
+
+      
+      const castRankingsCollection = collection(userRankingRef, 'cast_rankings');
+
+      for (let i = 0; i < this.rankCharacters.length; i++) {
+        const castMember = this.rankCharacters[i];
+        await addDoc(castRankingsCollection, {
+          order: i + 1,
+          cast_id: castMember.name, 
+        }
+      );
     }
   }
+}
