@@ -1,0 +1,20 @@
+.page-background {
+    display: flex;
+    flex-direction: row;
+    --background: var(--theme-bg) url('/assets/blur-background.svg') no-repeat center center / cover;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 50px;
+
+    img {
+        position: absolute;
+        width: 100px;
+        border-radius: 50%;
+    }
+}
