@@ -151,7 +151,7 @@
         const character = data['cast_character'];
         return {
           image: data['cast_image'],
-          name: character.startsWith('Self') ? data['cast_name'] : character,
+          name: (!character || character.startsWith('Self')) ? data['cast_name'] : character,
           order: data['cast_order']
         };
       });
