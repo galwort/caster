@@ -85,6 +85,7 @@
     ion-item {
       --background: transparent;
       --border-radius: 30px;
+      font-family: 'Varela Round', sans-serif;
 
       ion-select {
         font-size: 1.5rem;
@@ -167,6 +168,10 @@
       }
     }
   }
+}
+
+::ng-deep ion-popover {
+  --ion-font-family: 'Varela Round', sans-serif;
 }
 
 .rank-container {
