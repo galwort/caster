@@ -10,12 +10,12 @@
         <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}" class="show-image">
         <div class="select-container">
           <ion-item>
-            <ion-select placeholder="Season" (ionChange)="onSeasonSelect($event)">
+            <ion-select interface="popover" placeholder="Season" (ionChange)="onSeasonSelect($event)">
               <ion-select-option *ngFor="let season of seasons" [value]="season.label">{{ season.label }}</ion-select-option>
             </ion-select>
           </ion-item>
           <ion-item *ngIf="selectedSeason">
-            <ion-select #episodeSelect placeholder="Episode" (ionChange)="onEpisodeSelect($event)">
+            <ion-select interface="popover" #episodeSelect  placeholder="Episode" (ionChange)="onEpisodeSelect($event)">
               <ion-select-option *ngFor="let episodeIndex of selectedSeason.episodes" [value]="episodeIndex">{{ 'Episode ' + (episodeIndex % 100) }}</ion-select-option>
             </ion-select>
           </ion-item>
