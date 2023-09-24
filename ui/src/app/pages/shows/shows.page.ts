@@ -205,4 +205,17 @@
     toggleBankVisibility() {
       this.isBankVisible = !this.isBankVisible;
     }
+
+    showOverlay() {
+      const overlay = document.getElementById('overlay');
+    
+      if (overlay) {
+        overlay.style.display = 'block';
+    
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 3000);
+      }
+    }
+    
 }

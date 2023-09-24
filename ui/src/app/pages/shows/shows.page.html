@@ -45,9 +45,12 @@
               <span class="cast-name">{{ character.name }}</span>
             </div>
           </div>
-          <button class="cast-button" (click)="saveRanking()">CAST</button>
+          <button class="cast-button" (click)="saveRanking(); showOverlay()">CAST</button>
         </div>
       </div>
     </div>
+  </div>
+  <div class="overlay" id="overlay">
+    <img src="../assets/heart.svg" alt="Casted!">
   </div>
 </ion-content>
