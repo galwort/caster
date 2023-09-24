@@ -8,13 +8,11 @@
         [placeholder]="placeholderText">
       </ion-searchbar>
       <ng-container *ngIf="searchResults | async as results">
-        <div *ngIf="results.length > 0" id="results-container">
-          <ion-list>
+          <ion-list *ngIf="results.length > 0">
             <ion-item *ngFor="let result of results" (click)="selectShow(result)" class="clickable">
               {{ result.name }}
             </ion-item>
           </ion-list>
-        </div>
       </ng-container>
     </div>
     <div *ngIf="showProgressBar" id="progress-container">

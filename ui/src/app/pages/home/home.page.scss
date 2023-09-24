@@ -19,14 +19,6 @@
   width: 100%;
 }
 
-#results-container {
-  position: absolute;
-  width: 100%;
-  background: #000;
-  border-radius: 25px;
-  z-index: 1000;
-}
-
 #progress-container {
   position: absolute;
   bottom: -50px;
@@ -48,11 +40,31 @@ img {
 }
 
 ion-searchbar {
-  --background: var(--theme-search-bg);
+  --background: var(--theme-bg);
   --border-radius: 25px;
   --box-shadow: 0 0 0 2px var(--theme-search-fg);
   --icon-color: var(--theme-search-fg);
   font-family: 'Varela Round', sans-serif;
+  z-index: 1000;
+}
+
+ion-list {
+  position: absolute;
+  width: 97%;
+  background: var(--theme-bg);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding-top: 35px;
+  top: 25px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  ion-item {
+    font-family: 'Varela Round', sans-serif;
+    --background: var(--theme-bg);
+  }
 }
 
 .clickable {
