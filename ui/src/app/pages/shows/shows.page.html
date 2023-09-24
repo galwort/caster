@@ -19,8 +19,11 @@
               <ion-select-option *ngFor="let episodeIndex of selectedSeason.episodes" [value]="episodeIndex">{{ 'Episode ' + (episodeIndex % 100) }}</ion-select-option>
             </ion-select>
           </ion-item>
-          <h2 class="bank-title" *ngIf="bankCharacters.length > 0">Bank</h2>
-          <div cdkDropListGroup>
+          <h2 class="bank-title" *ngIf="bankCharacters.length > 0" (click)="toggleBankVisibility()">
+            Bank
+            <ion-icon [name]="isBankVisible ? 'caret-up-sharp' : 'caret-down-sharp'"></ion-icon>
+          </h2>
+          <div cdkDropListGroup *ngIf="isBankVisible">
             <div class="bank-container" *ngIf="bankCharacters.length > 0" cdkDropList #bankList="cdkDropList">
               <div class="bank-member" *ngFor="let character of bankCharacters" cdkDrag>
                 <div class="bank-image-container">

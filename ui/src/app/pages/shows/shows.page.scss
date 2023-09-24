@@ -105,14 +105,21 @@
       color: var(--theme-text);
       margin-left: 15px;
       margin-top: 10px;
-      margin-bottom: -5px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    ion-icon {
+      vertical-align: middle;
+      width: 13px;
+      cursor: pointer;
     }
 
     .bank-container {
       width: 250px;
       display: flex;
       flex-wrap: wrap;
-      margin-bottom: 50px;
+      margin-bottom: 5px;
     
       .bank-member {
         display: flex;

@@ -28,6 +28,7 @@
     castCharacters: { image: string; name: string; order: number }[] = [];
     rankCharacters: { image: string; name: string; order: number }[] = [];
     bankCharacters: { image: string; name: string; order: number }[] = [];
+    isBankVisible: boolean = false;
     public target: CdkDropList<any> | null = null;
     public targetIndex: number;
     public source: CdkDropList<any> | null = null;
@@ -199,5 +200,9 @@
           cast_id: castMember.name,
         });
       }
+    }
+    
+    toggleBankVisibility() {
+      this.isBankVisible = !this.isBankVisible;
     }
 }
