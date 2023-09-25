@@ -316,9 +316,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: var(--theme-bg);
     opacity: 0;
-    animation: fadeIn 3s infinite alternate;
+    animation: fade 1s;
   }
 }
 
@@ -326,20 +326,23 @@
   0% {
     transform: scale(1);
   }
+  50% {
+    transform: scale(2);
+  }
   100% {
-    transform: scale(1.5);
+    transform: scale(0.5);
   }
 }
 
-@keyframes fadeIn {
-  0% {
+@keyframes fade {
+  0%, 100% {
     opacity: 0;
   }
-  100% {
+  50% {
     opacity: 0.7;
   }
 }
 
 #overlay {
-  animation: zoomIn 3s infinite alternate;
+  animation: zoomIn 1s;
 }
