@@ -20,11 +20,18 @@ export class AuthService {
   public userId = new BehaviorSubject<string | null>(null); 
 
   constructor(private auth: Auth) {
+    const savedPic = localStorage.getItem('profilePic');
+    
+    if (savedPic) {
+      this.userPic.next(savedPic);
+    }
+
     onAuthStateChanged(this.auth, (user) => {
       if (user) {
         this.userId.next(user.uid);
       } else {
         this.userId.next(null);
+        localStorage.removeItem('profilePic');
       }
     });
   }
@@ -33,14 +40,13 @@ export class AuthService {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  loginWithGoogle() {
-    return signInWithPopup(this.auth, new GoogleAuthProvider())
-      .then((result) => {
-        const photoURL = result.user.photoURL;
-        if (photoURL) {
-          this.userPic.next(photoURL);
-        }
-      });
+  async loginWithGoogle() {
+    const result = await signInWithPopup(this.auth, new GoogleAuthProvider());
+    const photoURL = result.user.photoURL;
+    if (photoURL) {
+      this.userPic.next(photoURL);
+      localStorage.setItem('profilePic', photoURL);
+    }
   }
 
   register({ email, password }: LoginData) {
@@ -49,6 +55,7 @@ export class AuthService {
 
   logout() {
     this.userPic.next('assets/profile.svg');
+    localStorage.removeItem('profilePic');
     return signOut(this.auth);
   }
   
