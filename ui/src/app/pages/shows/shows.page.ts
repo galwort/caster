@@ -25,9 +25,9 @@
     castImages: string[] = [];
     selectedSeason: any = null;
     selectedEpisode: number | null = null;
-    castCharacters: { image: string; name: string; order: number }[] = [];
-    rankCharacters: { image: string; name: string; order: number }[] = [];
-    bankCharacters: { image: string; name: string; order: number }[] = [];
+    castCharacters: { id: string; image: string; name: string; order: number }[] = [];
+    rankCharacters: { id: string; image: string; name: string; order: number }[] = [];
+    bankCharacters: { id: string; image: string; name: string; order: number }[] = [];
     isBankVisible: boolean = false;
     public target: CdkDropList<any> | null = null;
     public targetIndex: number;
@@ -151,6 +151,7 @@
         const data = doc.data();
         const character = data['cast_character'];
         return {
+          id: doc.id,
           image: data['cast_image'],
           name: (!character || character.startsWith('Self')) ? data['cast_name'] : character,
           order: data['cast_order']
@@ -162,7 +163,7 @@
     }
     
 
-    drop(event: CdkDragDrop<{ image: string; name: string; order: number;}[]>): void {
+    drop(event: CdkDragDrop<{ id: string, image: string; name: string; order: number;}[]>): void {
       if (event.previousContainer === event.container) {
         moveItemInArray(
           event.container.data,
@@ -197,7 +198,9 @@
         const order = i + 1;
         const castRankingDocRef = doc(castRankingsCollection, order.toString());
         await setDoc(castRankingDocRef, {
-          cast_id: castMember.name,
+          cast_id: castMember.id,
+          cast_name: castMember.name,
+          cast_image: castMember.image,
         });
       }
     }
