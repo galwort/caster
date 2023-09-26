@@ -39,3 +39,25 @@
         display: flex;
     }
 }
+
+.subtitle {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2rem;
+    color: var(--theme-container-fg);
+    margin-left: 120px;
+    margin-top: 50px;
+}
+
+.shows-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.cast-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;    
+}
