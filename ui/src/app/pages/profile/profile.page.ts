@@ -23,24 +23,24 @@ export class ProfilePage implements OnInit {
     this.authService.userPic.subscribe(url => {
       this.profilePicUrl = url;
     });
-
+  
     this.authService.username.subscribe(username => {
       this.username = username;
     });
-
+  
     try {
       const db = getFirestore();
       const userUid = await this.authService.getCurrentUserId();
-
+  
       const userRankingsQuery = query(
         collection(db, 'user_rankings'),
         where('user_uid', '==', userUid)
       );
       const userRankingsSnapshot = await getDocs(userRankingsQuery);
-
+  
       const userShowIds = userRankingsSnapshot.docs.map(doc => doc.data()['show_id']);
-
       const showsSnapshot = await getDocs(collection(db, 'shows'));
+  
       this.showPosters = showsSnapshot.docs
         .filter(doc => userShowIds.includes(doc.id))
         .map(doc => {
@@ -50,25 +50,29 @@ export class ProfilePage implements OnInit {
             id: doc.id
           };
         });
-
-      for (const rankingDoc of userRankingsSnapshot.docs) {
+  
+      const castImagePromises = userRankingsSnapshot.docs.map(async rankingDoc => {
         const castDocRef = doc(db, 'user_rankings', rankingDoc.id, 'cast_rankings', '1');
         const castDocSnapshot = await getDoc(castDocRef);
         if (castDocSnapshot.exists()) {
           const data = castDocSnapshot.data();
-          this.castImages.push({
+          return {
             imageUrl: 'https://image.tmdb.org/t/p/w500' + data['cast_image'],
             id: data['cast_id'],
             name: data['cast_name']
-          });
+          };
         }
-      }
-
-
+        return null;
+      });
+  
+      const fetchedCastImages = await Promise.all(castImagePromises);
+      this.castImages = fetchedCastImages.filter((img): img is { imageUrl: string; id: string; name: string } => img !== null);
+  
     } catch (e) {
       console.error('Failed to fetch user-ranked show images:', e);
     }
   }
+  
 
   goToShowPage(showId: string) {
     this.router.navigate(['/shows', showId]);
