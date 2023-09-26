@@ -6,9 +6,11 @@
   <div class="shows-container">
     <h2 class="subtitle">Favorite Shows</h2>
     <div class="shows-list">
-      <div *ngFor="let show of showPosters">
-        <img [src]="show.imageUrl" [alt]="show.id">
-      </div>
+      <swiper-container loop="true" [slidesPerView]="8" [autoplay]="{ delay: 2000 }"> 
+        <swiper-slide *ngFor="let poster of showPosters">
+          <img [src]="poster.imageUrl">
+        </swiper-slide>            
+      </swiper-container>
     </div>
   </div>
   <div class="cast-container">

@@ -53,6 +53,16 @@
     flex-direction: column;
     margin-top: 50px;
     margin-bottom: 50px;
+
+    swiper-container {
+        width: 100vw;
+
+        img {
+            height: 300px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    }
 }
 
 .cast-container {
