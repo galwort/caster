@@ -7,7 +7,7 @@
     <h2 class="subtitle">Favorite Shows</h2>
     <div class="shows-list">
       <swiper-container loop="true" [slidesPerView]="8" [autoplay]="{ delay: 2000 }"> 
-        <swiper-slide *ngFor="let poster of showPosters">
+        <swiper-slide *ngFor="let poster of showPosters" (click)="goToShowPage(poster.id)">
           <img [src]="poster.imageUrl">
         </swiper-slide>            
       </swiper-container>

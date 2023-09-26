@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,10 @@ export class ProfilePage implements OnInit {
   public username: string;
   public showPosters: { imageUrl: string; id: string }[] = [];
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private readonly router: Router
+  ) { }
 
   async ngOnInit() {
     this.authService.userPic.subscribe(url => {
@@ -48,5 +52,9 @@ export class ProfilePage implements OnInit {
     } catch (e) {
       console.error('Failed to fetch user-ranked show images:', e);
     }
+  }
+
+  goToShowPage(showId: string) {
+    this.router.navigate(['/shows', showId]);
   }
 }
