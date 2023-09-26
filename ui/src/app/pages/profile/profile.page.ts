@@ -9,6 +9,7 @@ import { getFirestore, collection, getDocs, query, where } from "firebase/firest
 })
 export class ProfilePage implements OnInit {
   public profilePicUrl: string;
+  public username: string;
   public showPosters: { imageUrl: string; id: string }[] = [];
 
   constructor(private authService: AuthService) { }
@@ -16,6 +17,10 @@ export class ProfilePage implements OnInit {
   async ngOnInit() {
     this.authService.userPic.subscribe(url => {
       this.profilePicUrl = url;
+    });
+
+    this.authService.username.subscribe(username => {
+      this.username = username;
     });
 
     try {

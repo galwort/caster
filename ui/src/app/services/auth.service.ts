@@ -17,7 +17,8 @@ import { LoginData } from '../interfaces/login-data.interface';
 })
 export class AuthService {
   public userPic = new BehaviorSubject<string>('assets/profile.svg');
-  public userId = new BehaviorSubject<string | null>(null); 
+  public userId = new BehaviorSubject<string | null>(null);
+  public username = new BehaviorSubject<string>('Guest');
 
   constructor(private auth: Auth) {
     const savedPic = localStorage.getItem('profilePic');
@@ -43,9 +44,16 @@ export class AuthService {
   async loginWithGoogle() {
     const result = await signInWithPopup(this.auth, new GoogleAuthProvider());
     const photoURL = result.user.photoURL;
+    const username = result.user.displayName;
+
     if (photoURL) {
       this.userPic.next(photoURL);
       localStorage.setItem('profilePic', photoURL);
+    }
+
+    if (username) {
+      this.username.next(username);
+      localStorage.setItem('username', username);
     }
   }
 
