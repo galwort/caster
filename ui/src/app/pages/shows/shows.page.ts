@@ -252,4 +252,12 @@
     playCastSound() {
       this.castSound.play();
     }
+    
+    playClickSound() {
+      this.clickSound.play();
+    }
+    
+    playClackSound() {
+      this.clackSound.play();
+    }
   }

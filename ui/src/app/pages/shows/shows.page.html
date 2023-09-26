@@ -38,12 +38,20 @@
       <div class="rank-container">
         <div class="cast-container">
           <div cdkDropList [cdkDropListData]="rankCharacters" (cdkDropListDropped)="drop($event)">
-            <div class="cast-member" *ngFor="let character of rankCharacters" cdkDrag>
-              <div class="cast-image-container">
-                <img [src]="character.image ? 'https://image.tmdb.org/t/p/w500' + character.image : '../assets/profile.svg'" alt="Cast Image">
+            <div cdkDropList [cdkDropListData]="rankCharacters" (cdkDropListDropped)="drop($event)">
+              <div 
+                class="cast-member" 
+                *ngFor="let character of rankCharacters" 
+                cdkDrag 
+                (cdkDragStarted)="playClickSound()" 
+                (cdkDragReleased)="playClackSound()"
+              >
+                <div class="cast-image-container">
+                  <img [src]="character.image ? 'https://image.tmdb.org/t/p/w500' + character.image : '../assets/profile.svg'" alt="Cast Image">
+                </div>
+                <span class="cast-name">{{ character.name }}</span>
               </div>
-              <span class="cast-name">{{ character.name }}</span>
-            </div>
+            </div>            
           </div>
           <button class="cast-button" (click)="saveRanking(); showOverlay(); playCastSound()">CAST</button>
         </div>
