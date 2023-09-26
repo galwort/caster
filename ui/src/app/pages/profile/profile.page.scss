@@ -45,14 +45,13 @@
     font-size: 2rem;
     color: var(--theme-container-fg);
     margin-left: 120px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .shows-container {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 65px;
 
     swiper-container {
         width: 100vw;
@@ -68,6 +67,21 @@
 .cast-container {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    margin-bottom: 50px;    
+    margin-top: 30px;  
+
+    swiper-container {
+        width: 100vw;
+
+        img {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+    }
 }

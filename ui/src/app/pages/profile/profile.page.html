@@ -16,7 +16,7 @@
   <div class="cast-container">
     <h2 class="subtitle">Favorite Characters</h2>
     <div class="cast-list">
-      <swiper-container loop="true" [slidesPerView]="8" [autoplay]="{ delay: 2000 }"> 
+      <swiper-container loop="true" [slidesPerView]="10" [autoplay]="{ delay: 2000 }"> 
         <swiper-slide *ngFor="let cast of castImages">
           <img [src]="cast.imageUrl">
         </swiper-slide>            
