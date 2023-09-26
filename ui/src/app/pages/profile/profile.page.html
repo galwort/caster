@@ -6,6 +6,9 @@
   <div class="shows-container">
     <h2 class="subtitle">Favorite Shows</h2>
     <div class="shows-list">
+      <div *ngFor="let show of showPosters">
+        <img [src]="show.imageUrl" [alt]="show.id">
+      </div>
     </div>
   </div>
   <div class="cast-container">

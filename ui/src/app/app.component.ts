@@ -43,7 +43,6 @@ export class AppComponent {
 
   loginOrProfile() {
     const userId = this.authService.getCurrentUserId();
-    console.log('Current User ID:', userId);
     if (userId) {
       this.router.navigate(['/profile']);
     } else {
