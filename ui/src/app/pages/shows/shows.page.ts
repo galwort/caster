@@ -88,7 +88,17 @@
       );
   
       const nextSnapshot = await getDocs(nextQuery);
-      this.nextShow = nextSnapshot.docs.length ? nextSnapshot.docs[0].id : null;
+      if (nextSnapshot.docs.length) {
+        this.nextShow = nextSnapshot.docs[0].id;
+      } else {
+        const firstQuery = query(
+          collection(db, "shows"),
+          orderBy("show_name"),
+          limit(1)
+        );
+        const firstSnapshot = await getDocs(firstQuery);
+        this.nextShow = firstSnapshot.docs.length ? firstSnapshot.docs[0].id : null;
+      }
   
       const prevQuery = query(
         collection(db, "shows"),
@@ -98,7 +108,17 @@
       );
   
       const prevSnapshot = await getDocs(prevQuery);
-      this.prevShow = prevSnapshot.docs.length ? prevSnapshot.docs[0].id : null;
+      if (prevSnapshot.docs.length) {
+        this.prevShow = prevSnapshot.docs[0].id;
+      } else {
+        const lastQuery = query(
+          collection(db, "shows"),
+          orderBy("show_name", "desc"),
+          limit(1)
+        );
+        const lastSnapshot = await getDocs(lastQuery);
+        this.prevShow = lastSnapshot.docs.length ? lastSnapshot.docs[0].id : null;
+      }
     }
 
     navigateToNextShow() {
