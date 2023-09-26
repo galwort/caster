@@ -22,9 +22,14 @@ export class AuthService {
 
   constructor(private auth: Auth) {
     const savedPic = localStorage.getItem('profilePic');
+    const savedUsername = localStorage.getItem('username');
     
     if (savedPic) {
       this.userPic.next(savedPic);
+    }
+
+    if (savedUsername) {
+      this.username.next(savedUsername);
     }
 
     onAuthStateChanged(this.auth, (user) => {
