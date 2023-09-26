@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, getDoc, getDocs, query, where, doc } from "firebase/firestore";
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +12,7 @@ export class ProfilePage implements OnInit {
   public profilePicUrl: string;
   public username: string;
   public showPosters: { imageUrl: string; id: string }[] = [];
+  public castImages: { imageUrl: string; id: string; name: string }[] = [];
 
   constructor(
     private authService: AuthService,
@@ -36,7 +37,7 @@ export class ProfilePage implements OnInit {
         where('user_uid', '==', userUid)
       );
       const userRankingsSnapshot = await getDocs(userRankingsQuery);
-      
+
       const userShowIds = userRankingsSnapshot.docs.map(doc => doc.data()['show_id']);
 
       const showsSnapshot = await getDocs(collection(db, 'shows'));
@@ -49,6 +50,21 @@ export class ProfilePage implements OnInit {
             id: doc.id
           };
         });
+
+      for (const rankingDoc of userRankingsSnapshot.docs) {
+        const castDocRef = doc(db, 'user_rankings', rankingDoc.id, 'cast_rankings', '1');
+        const castDocSnapshot = await getDoc(castDocRef);
+        if (castDocSnapshot.exists()) {
+          const data = castDocSnapshot.data();
+          this.castImages.push({
+            imageUrl: 'https://image.tmdb.org/t/p/w500' + data['cast_image'],
+            id: data['cast_id'],
+            name: data['cast_name']
+          });
+        }
+      }
+
+
     } catch (e) {
       console.error('Failed to fetch user-ranked show images:', e);
     }
