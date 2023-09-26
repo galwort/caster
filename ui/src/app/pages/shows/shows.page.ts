@@ -36,6 +36,10 @@
     public dragIndex: number;
     public activeContainer: any;
 
+    clickSound: HTMLAudioElement;
+    clackSound: HTMLAudioElement;
+    castSound: HTMLAudioElement;
+
 
     constructor(
       private viewportRuler: ViewportRuler,
@@ -54,6 +58,10 @@
     @ViewChild(CdkDropList) placeholder: CdkDropList;
 
     async ngOnInit() {
+      this.clickSound = new Audio('../assets/sounds/click.wav');
+      this.clackSound = new Audio('../assets/sounds/clack.wav');
+      this.castSound = new Audio('../assets/sounds/cast.wav');
+
       const showId = this.route.snapshot.paramMap.get('id');
       if (showId) {
         const showDoc = await getDoc(doc(db, "shows", showId));
@@ -240,4 +248,8 @@
         }, 1000);
       }
     }
-}
+
+    playCastSound() {
+      this.castSound.play();
+    }
+  }
