@@ -23,7 +23,7 @@
               [class.bank-title]="isBankVisible" [class.bank-title-opaque]="!isBankVisible">
             Bank <ion-icon [name]="isBankVisible ? 'caret-up-sharp' : 'caret-down-sharp'"></ion-icon>
           </h2>
-          <div cdkDropListGroup>
+          <div cdkDropListGroup *ngIf="isBankVisible">
             <div class="bank-container" *ngIf="bankCharacters.length > 0" cdkDropList #bankList="cdkDropList"
               [cdkDropListConnectedTo]="[castList]" (cdkDropListDropped)="drop($event)">
               <div class="bank-member" *ngFor="let character of bankCharacters" cdkDrag>
