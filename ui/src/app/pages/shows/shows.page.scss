@@ -269,12 +269,8 @@
     text-overflow: ellipsis;
     white-space: wrap;
   }
-}
 
-.cast-member {
-  display: flex;
-  align-items: center;
-
+  .bank-image-container,
   .cast-image-container {
     width: 150px;
     height: 150px;
@@ -290,6 +286,11 @@
       object-position: center 30%;
     }
   }
+}
+
+.cast-member {
+  display: flex;
+  align-items: center;
 }
 
 .overlay {
