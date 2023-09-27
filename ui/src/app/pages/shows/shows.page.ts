@@ -39,6 +39,8 @@
     clickSound: HTMLAudioElement;
     clackSound: HTMLAudioElement;
     castSound: HTMLAudioElement;
+    swipeSound: HTMLAudioElement;
+    buttonSound: HTMLAudioElement;
 
 
     constructor(
@@ -63,6 +65,8 @@
       this.clickSound = new Audio('../assets/sounds/click.wav');
       this.clackSound = new Audio('../assets/sounds/clack.wav');
       this.castSound = new Audio('../assets/sounds/cast.wav');
+      this.swipeSound = new Audio('../assets/sounds/swipe.mp3');
+      this.buttonSound = new Audio('../assets/sounds/button.wav');
 
       const showId = this.route.snapshot.paramMap.get('id');
       if (showId) {
@@ -261,5 +265,13 @@
     
     playClackSound() {
       this.clackSound.play();
+    }
+    
+    playSwipeSound() {
+      this.swipeSound.play();
+    }
+    
+    playButtonSound() {
+      this.buttonSound.play();
     }
   }

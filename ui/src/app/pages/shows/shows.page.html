@@ -1,25 +1,25 @@
 <ion-content class="page-background">
   <div class="center-container">
     <div class="header-container">
-      <img src="../assets/west-wing.svg" class="wing west-wing" (click)="navigateToPrevShow()" alt="Previous show">
+      <img src="../assets/west-wing.svg" class="wing west-wing" (click)="navigateToPrevShow(); playSwipeSound()" alt="Previous show">
       <h1 class="show-title">{{ show?.show_name }}</h1>
-      <img src="../assets/east-wing.svg" class="wing east-wing" (click)="navigateToNextShow()" alt="Next show">
+      <img src="../assets/east-wing.svg" class="wing east-wing" (click)="navigateToNextShow(); playSwipeSound()" alt="Next show">
     </div>
     <div class="main-container">
       <div class="info-container">
         <img [src]="'https://image.tmdb.org/t/p/w500' + show?.show_image" alt="{{ show?.show_name }}" class="show-image">
         <div class="select-container">
           <ion-item>
-            <ion-select interface="popover" placeholder="Season" (ionChange)="onSeasonSelect($event)">
+            <ion-select interface="popover" placeholder="Season" (ionChange)="onSeasonSelect($event); playButtonSound()" (click)="playButtonSound()">
               <ion-select-option *ngFor="let season of seasons" [value]="season.label">{{ season.label }}</ion-select-option>
             </ion-select>
           </ion-item>
           <ion-item *ngIf="selectedSeason">
-            <ion-select interface="popover" #episodeSelect placeholder="Episode" (ionChange)="onEpisodeSelect($event)">
+            <ion-select interface="popover" #episodeSelect placeholder="Episode" (ionChange)="onEpisodeSelect($event); playButtonSound()" (click)="playButtonSound()">
               <ion-select-option *ngFor="let episodeIndex of selectedSeason.episodes" [value]="episodeIndex">{{ 'Episode ' + (episodeIndex % 100) }}</ion-select-option>
             </ion-select>
           </ion-item>
-          <h2 class="bank-title-opaque" *ngIf="bankCharacters.length > 0" (click)="toggleBankVisibility()"
+          <h2 class="bank-title-opaque" *ngIf="bankCharacters.length > 0" (click)="toggleBankVisibility(); playButtonSound()"
               [class.bank-title]="isBankVisible" [class.bank-title-opaque]="!isBankVisible">
             Bank <ion-icon [name]="isBankVisible ? 'caret-up-sharp' : 'caret-down-sharp'"></ion-icon>
           </h2>
