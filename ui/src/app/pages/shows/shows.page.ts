@@ -56,6 +56,8 @@
     @ViewChild('episodeSelect') episodeSelect: any;
     @ViewChild(CdkDropListGroup) listGroup: CdkDropListGroup<CdkDropList>;
     @ViewChild(CdkDropList) placeholder: CdkDropList;
+    @ViewChild('bankList') bankList: CdkDropList;
+    @ViewChild('castList') castList: CdkDropList;
 
     async ngOnInit() {
       this.clickSound = new Audio('../assets/sounds/click.wav');
