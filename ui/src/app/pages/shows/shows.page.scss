@@ -70,7 +70,7 @@
   justify-content: center;
 
   .show-image {
-    width: 250px;
+    width: 200px;
     height: auto;
     margin-bottom: 20px;
     border-radius: 30px;
@@ -82,7 +82,6 @@
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
     border-radius: 30px;
     
-
     ion-item {
       --background: transparent;
       --border-radius: 30px;
@@ -168,6 +167,10 @@
         }
       }
     }
+  }
+
+  .cast-heart {
+    width: 200px;
   }
 }
 
