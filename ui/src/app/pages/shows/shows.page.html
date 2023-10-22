@@ -35,6 +35,7 @@
             <div cdkDropList #placeholder></div>
           </div>
         </div>
+        <img src="../assets/heart.svg" (click)="saveRanking(); showOverlay(); playCastSound()">
       </div>
       <div class="rank-container">
         <div class="cast-container">
@@ -48,7 +49,6 @@
               <span class="cast-name">{{ character.name }}</span>
             </div>           
           </div>
-          <button class="cast-button" (click)="saveRanking(); showOverlay(); playCastSound()">CAST</button>
         </div>
       </div>
     </div>

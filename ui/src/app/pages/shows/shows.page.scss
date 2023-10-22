@@ -81,6 +81,7 @@
     background-color: var(--theme-container-bg);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
     border-radius: 30px;
+    
 
     ion-item {
       --background: transparent;
@@ -217,30 +218,6 @@
         font-family: 'Varela Round', sans-serif;
         color: var(--theme-container-fg);
         margin-left: 10px;  
-      }
-    }
-
-    .cast-button {
-      background: var(--theme-container-bg-dark);
-      color: var(--theme-container-fg);
-      padding: 15px 15px;
-      text-align: center;
-      text-decoration: none;
-      display: block;
-      font-size: 24px;
-      font-family: 'Varela Round', sans-serif;
-      margin: 10px auto;
-      cursor: pointer;
-      border-radius: 5px;
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-    
-      &:active {
-        box-shadow:
-          inset 2px 2px 3px rgba(0, 0, 0, 0.2),
-          inset -2px -2px 3px rgba(255, 255, 255, 0.5);
       }
     }
   }
