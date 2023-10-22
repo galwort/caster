@@ -35,7 +35,10 @@
             <div cdkDropList #placeholder></div>
           </div>
         </div>
-        <img src="../assets/heart.svg" class="cast-heart" (click)="saveRanking(); showOverlay(); playCastSound()">
+        <div class="cast-heart">
+          <img src="../assets/heart.svg" (click)="saveRanking(); showOverlay(); playCastSound()">
+          <span class="cast-text">CAST</span>
+        </div>
       </div>
       <div class="rank-container">
         <div class="cast-container">
